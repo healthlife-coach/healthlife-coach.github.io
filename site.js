@@ -80,6 +80,9 @@
       msg_plain:"Hello Coach",
       msg_paid:"Hello Coach, I have transferred {amount} for the 3-month {plan} package. My name: {name}. I am sending the receipt now.",
       plan_daily:"DAILY follow-up", plan_weekly:"WEEKLY follow-up",
+      pm_h:"Payment Methods", pm_now:"Available now", pm_bank:"Bank transfer", pm_soon:"Coming soon",
+      pm_visa:"Visa", pm_mc:"Mastercard", pm_meeza:"Meeza", pm_apple:"Apple Pay", pm_vf:"Vodafone Cash", pm_or:"Orange Cash", pm_et:"Etisalat Cash (e&)", pm_banks:"Other bank wallets",
+      pm_note:"Online payment by card and mobile wallet is being set up. For now, please pay by bank transfer.",
       btn:"العربية"
     },
     ar: {
@@ -144,6 +147,9 @@
       msg_plain:"مرحبًا كابتن",
       msg_paid:"مرحبًا كابتن، قمت بتحويل {amount} لباقة الـ3 شهور بـ{plan}. اسمي: {name}. سأرسل لك الإيصال الآن.",
       plan_daily:"متابعة يومية", plan_weekly:"متابعة أسبوعية",
+      pm_h:"طرق الدفع", pm_now:"متاح الآن", pm_bank:"تحويل بنكي", pm_soon:"قريبًا",
+      pm_visa:"فيزا", pm_mc:"ماستركارد", pm_meeza:"ميزة", pm_apple:"أبل باي", pm_vf:"فودافون كاش", pm_or:"أورانج كاش", pm_et:"اتصالات كاش (e&)", pm_banks:"محافظ البنوك الأخرى",
+      pm_note:"جاري تجهيز الدفع الإلكتروني بالبطاقات والمحافظ الإلكترونية. حاليًا يُرجى الدفع بالتحويل البنكي.",
       btn:"English"
     }
   };

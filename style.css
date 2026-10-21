@@ -140,3 +140,21 @@ footer{text-align:center;padding:28px 20px;color:var(--muted);border-top:1px sol
   nav{flex-wrap:wrap;row-gap:4px}
   nav ul{order:3;width:100%;overflow-x:auto;gap:18px;padding-bottom:4px;white-space:nowrap;font-size:14px}
 }
+
+/* payment methods */
+.pm{max-width:760px;margin:0 auto}
+.pm-group{margin-bottom:26px}
+.pm-label{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:12px}
+.pm-label .dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
+.pm-label.soon .dot{background:#f5c542}
+.pm-row{display:flex;flex-wrap:wrap;gap:10px}
+.pm-pill{padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:600}
+.pm-pill.on{border-color:var(--lime);color:var(--lime)}
+.pm-pill.off{opacity:.75;border-style:dashed;color:var(--muted)}
+.pm-note{color:var(--muted);font-size:14px;margin-top:10px}
+
+.pm-logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px}
+.pm-item{margin:0;text-align:center}
+.pm-logo{display:flex;align-items:center;justify-content:center;height:84px;border-radius:14px;padding:12px 16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.pm-logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.pm-item figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
