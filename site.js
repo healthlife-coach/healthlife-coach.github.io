@@ -269,9 +269,35 @@
 
   /* online payment: ON only when PAYMENT_API is set */
   var LIVE = !!PAYMENT_API;
+  if (LIVE) {
+    T.en.pay_page_h = "Pay Online or by Bank Transfer";
+    T.en.pay_page_p = "Choose your package and pay securely by card or mobile wallet, or transfer to our bank account and send us the receipt on WhatsApp.";
+    T.en.title_pay = "Payment | HealthLife";
+    T.ar.pay_page_h = "ادفع أونلاين أو بتحويل بنكي";
+    T.ar.pay_page_p = "اختار باقتك وادفع بأمان بالكارت أو المحفظة، أو حوّل على حسابنا البنكي وابعتلنا الإيصال على واتساب.";
+    T.ar.title_pay = "الدفع | HealthLife";
+    apply(lang);
+  }
+  if (LIVE) {
+    T.en.pay_page_h = "Pay Online or by Bank Transfer";
+    T.en.pay_page_p = "Choose your package, then pay by card or mobile wallet, or transfer to our bank account and send us the receipt on WhatsApp.";
+    T.en.title_pay = "Payment | HealthLife";
+    T.ar.pay_page_h = "ادفع أونلاين أو بتحويل بنكي";
+    T.ar.pay_page_p = "اختار باقتك وادفع بالكارت أو المحفظة الإلكترونية، أو حوّل على حسابنا البنكي وابعتلنا الإيصال على واتساب.";
+    T.ar.title_pay = "الدفع | HealthLife";
+  }
   document.querySelectorAll("[data-live]").forEach(function(el){ el.hidden = !LIVE; });
   document.querySelectorAll("[data-offline]").forEach(function(el){ el.hidden = LIVE; });
   var payBtn = document.getElementById("payNow");
+  var priceEl = document.getElementById("onlinePrice");
+  if (LIVE && priceEl) {
+    var showPrice = function(d){ var c = d.currency || "EGP"; priceEl.textContent = (lang === "ar" ? "سعر الدفع الأونلاين: " : "Online price: ") + d.prices[plan].toLocaleString("en-US") + " " + (c === "EGP" && lang === "ar" ? "جنيه" : c); };
+    fetch(PAYMENT_API).then(function(r){ return r.json(); }).then(function(d){
+      window.__hlPrices = d; showPrice(d);
+      document.querySelectorAll('input[name="plan"]').forEach(function(r){ r.addEventListener("change", function(){ showPrice(d); }); });
+      var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function(){ setTimeout(function(){ showPrice(d); }, 0); });
+    }).catch(function(){});
+  }
   if (payBtn && LIVE) {
     var msgEl = document.getElementById("payMsg");
     var say = function(k){ if (msgEl) msgEl.textContent = k ? T[lang][k] : ""; };
