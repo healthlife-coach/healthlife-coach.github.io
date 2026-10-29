@@ -122,6 +122,8 @@
     <div class="field"><label for="pName" data-i18n="f_name">Full name</label><input id="pName" type="text" autocomplete="name" maxlength="80"></div>
     <div class="field"><label for="pPhone" data-i18n="f_phone">WhatsApp number</label><input id="pPhone" type="tel" autocomplete="tel" maxlength="20" dir="ltr"></div>
     <div class="field"><label for="pEmail" data-i18n="f_email">Email (optional)</label><input id="pEmail" type="email" autocomplete="email" maxlength="100" dir="ltr"></div>
+    <div class="warn" style="margin:16px 0" data-i18n="terms_p"></div>
+    <label style="display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;cursor:pointer"><input type="checkbox" id="agree" style="margin-top:4px"><span data-i18n="terms_chk">I agree to the terms</span></label>
     <p class="note" id="onlinePrice" style="color:var(--lime);font-weight:700"></p>
     <div class="btns"><button class="btn primary" id="payNow" type="button" data-i18n="pay_now">Pay now</button></div>
     <p class="note" id="payMsg" role="status"></p>
@@ -139,6 +141,7 @@
       <p class="note" data-i18n="pay_note">Please confirm the account name with the coach on WhatsApp before sending money.</p>
     </div>
     <p class="note" data-i18n="usd_note"></p>
+    <div class="warn" style="margin-top:14px" data-i18n="terms_p"></div>
   </div>
 </section>
 
