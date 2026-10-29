@@ -10,7 +10,7 @@
   /* ===== EDIT HERE: all website text. "en" = English, "ar" = Arabic ===== */
   var T = {
     en: {
-    pk_pay:"Subscribe & pay now", pk_ask:"Ask on WhatsApp", pm_online:"Online payment", pay_online_h:"Pay online by card or wallet", pay_online_p:"Fill in your details, then you will be taken to a secure Kashier page to finish the payment. We never see your card details.", f_name:"Full name", f_phone:"WhatsApp number", f_email:"Email (optional)", pay_now:"Pay now", pay_wait:"Please wait…", pay_err:"Could not start the payment. Please try again or pay by bank transfer.", pay_need:"Please enter your name and WhatsApp number.", pay_done:"Thank you! Your payment is being confirmed. Please message us on WhatsApp to start.", or_bank:"Or pay by bank transfer",
+    pk_pay:"Subscribe & pay now", thx_h:"Thank you! 🎉", thx_p:"Your payment is being confirmed. Send us your order number on WhatsApp and we will verify it and start your program.", thx_o:"Order number", thx_btn:"Send order number on WhatsApp", msg_order:"Hello Coach Abdelrahman, I paid online. My order number is: {order}. Please confirm my payment and start my program.", powered:"Online payments powered by", pk_ask:"Ask on WhatsApp", pm_online:"Online payment", pay_online_h:"Pay online by card or wallet", pay_online_p:"Fill in your details, then you will be taken to a secure Kashier page to finish the payment. We never see your card details.", f_name:"Full name", f_phone:"WhatsApp number", f_email:"Email (optional)", pay_now:"Pay now", pay_wait:"Please wait…", pay_err:"Could not start the payment. Please try again or pay by bank transfer.", pay_need:"Please enter your name and WhatsApp number.", pay_done:"Thank you! Your payment is being confirmed. Please message us on WhatsApp to start.", or_bank:"Or pay by bank transfer",
       /* titles */
       title_home:"HealthLife | Diet & Workout Coaching",
       title_results:"Transformations | HealthLife",
@@ -89,7 +89,7 @@
       btn:"العربية"
     },
     ar: {
-    pk_pay:"اشترك وادفع الآن", pk_ask:"اسأل على واتساب", pm_online:"الدفع الإلكتروني", pay_online_h:"ادفع أونلاين بالكارت أو المحفظة", pay_online_p:"اكتب بياناتك وهننقلك لصفحة كاشير الآمنة لإتمام الدفع. إحنا مش بنشوف بيانات الكارت أبداً.", f_name:"الاسم بالكامل", f_phone:"رقم الواتساب", f_email:"الإيميل (اختياري)", pay_now:"ادفع الآن", pay_wait:"استنى لحظة…", pay_err:"مقدرناش نبدأ الدفع. جرّب تاني أو ادفع بتحويل بنكي.", pay_need:"من فضلك اكتب اسمك ورقم الواتساب.", pay_done:"شكراً! جاري تأكيد الدفع. ابعتلنا على واتساب لنبدأ.", or_bank:"أو ادفع بتحويل بنكي",
+    pk_pay:"اشترك وادفع الآن", thx_h:"شكراً لك! 🎉", thx_p:"جاري تأكيد دفعتك. ابعتلنا رقم الطلب على واتساب وهنراجعه ونبدأ برنامجك.", thx_o:"رقم الطلب", thx_btn:"ابعت رقم الطلب على واتساب", msg_order:"أهلاً كابتن عبدالرحمن، دفعت أونلاين. رقم طلبي: {order}. من فضلك أكد الدفع وابدأ برنامجي.", powered:"الدفع الإلكتروني بواسطة", pk_ask:"اسأل على واتساب", pm_online:"الدفع الإلكتروني", pay_online_h:"ادفع أونلاين بالكارت أو المحفظة", pay_online_p:"اكتب بياناتك وهننقلك لصفحة كاشير الآمنة لإتمام الدفع. إحنا مش بنشوف بيانات الكارت أبداً.", f_name:"الاسم بالكامل", f_phone:"رقم الواتساب", f_email:"الإيميل (اختياري)", pay_now:"ادفع الآن", pay_wait:"استنى لحظة…", pay_err:"مقدرناش نبدأ الدفع. جرّب تاني أو ادفع بتحويل بنكي.", pay_need:"من فضلك اكتب اسمك ورقم الواتساب.", pay_done:"شكراً! جاري تأكيد الدفع. ابعتلنا على واتساب لنبدأ.", or_bank:"أو ادفع بتحويل بنكي",
       title_home:"هيلث لايف | نظام غذائي وخطة تمارين",
       title_results:"التحولات | هيلث لايف",
       title_pay:"الدفع بالتحويل البنكي | هيلث لايف",
@@ -205,6 +205,7 @@
     document.querySelectorAll("[data-wa]").forEach(function(a){
       var kind = a.getAttribute("data-wa");
       if (kind === "paid") a.href = paidLink();
+      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(d.msg_order.replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
       else a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(d["msg_" + kind]);
     });
     var btn = document.getElementById("langBtn");
@@ -269,6 +270,12 @@
 
   /* online payment: ON only when PAYMENT_API is set */
   var LIVE = !!PAYMENT_API;
+  var orderId = "";
+  try {
+    var qo = new URLSearchParams(location.search);
+    var o = qo.get("order") || "";
+    if (qo.get("status") === "done" && /^HL-[a-z]+-\d+-[a-z0-9]+$/i.test(o)) orderId = o;
+  } catch(e) {}
   if (LIVE) {
     T.en.pay_page_h = "Pay Online or by Bank Transfer";
     T.en.pay_page_p = "Choose your package and pay securely by card or mobile wallet, or transfer to our bank account and send us the receipt on WhatsApp.";
@@ -288,6 +295,14 @@
   }
   document.querySelectorAll("[data-live]").forEach(function(el){ el.hidden = !LIVE; });
   document.querySelectorAll("[data-offline]").forEach(function(el){ el.hidden = LIVE; });
+  var thanks = document.getElementById("thanks");
+  if (thanks && LIVE && orderId) {
+    thanks.hidden = false;
+    var oe = document.getElementById("orderNo"); if (oe) oe.textContent = orderId;
+    document.querySelectorAll("[data-hide-done]").forEach(function(el){ el.hidden = true; });
+    apply(lang);
+    try { thanks.scrollIntoView(); } catch(e) {}
+  }
   var payBtn = document.getElementById("payNow");
   var priceEl = document.getElementById("onlinePrice");
   if (LIVE && priceEl) {
@@ -301,9 +316,6 @@
   if (payBtn && LIVE) {
     var msgEl = document.getElementById("payMsg");
     var say = function(k){ if (msgEl) msgEl.textContent = k ? T[lang][k] : ""; };
-    try {
-      if (new URLSearchParams(location.search).get("status") === "done") say("pay_done");
-    } catch(e) {}
     payBtn.addEventListener("click", function(){
       var n = document.getElementById("pName").value.trim();
       var p = document.getElementById("pPhone").value.trim();
