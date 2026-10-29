@@ -5,7 +5,7 @@
   /* ===== EDIT HERE: contact details ===== */
   var WA = "201050747891"; // WhatsApp number: country code first, no + or leading zeros
   /* Paste your Cloudflare Worker URL here to switch online payment ON. Empty = bank transfer only. */
-  var PAYMENT_API = "";
+  var PAYMENT_API = "https://healthlife-pay.abdelrahmansarya90.workers.dev";
 
   /* ===== EDIT HERE: all website text. "en" = English, "ar" = Arabic ===== */
   var T = {
