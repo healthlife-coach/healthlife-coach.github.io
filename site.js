@@ -4,10 +4,13 @@
 
   /* ===== EDIT HERE: contact details ===== */
   var WA = "201050747891"; // WhatsApp number: country code first, no + or leading zeros
+  /* Paste your Cloudflare Worker URL here to switch online payment ON. Empty = bank transfer only. */
+  var PAYMENT_API = "";
 
   /* ===== EDIT HERE: all website text. "en" = English, "ar" = Arabic ===== */
   var T = {
     en: {
+    pk_pay:"Subscribe & pay now", pk_ask:"Ask on WhatsApp", pm_online:"Online payment", pay_online_h:"Pay online by card or wallet", pay_online_p:"Fill in your details, then you will be taken to a secure Kashier page to finish the payment. We never see your card details.", f_name:"Full name", f_phone:"WhatsApp number", f_email:"Email (optional)", pay_now:"Pay now", pay_wait:"Please wait…", pay_err:"Could not start the payment. Please try again or pay by bank transfer.", pay_need:"Please enter your name and WhatsApp number.", pay_done:"Thank you! Your payment is being confirmed. Please message us on WhatsApp to start.", or_bank:"Or pay by bank transfer",
       /* titles */
       title_home:"HealthLife | Diet & Workout Coaching",
       title_results:"Transformations | HealthLife",
@@ -30,7 +33,7 @@
       pk_h:"3-Month Packages", pk_sub:"Limited-time discounted prices. Both packages include the full diet plan and workout plan.",
       pk1_tag:"⭐ RECOMMENDED", pk1_h:"Daily Follow-up", pk_dur:"for 3 months",
       pk_l1:"Personalized diet plan", pk_l2:"Personalized workout plan", pk1_l3:"Daily follow-up with the coach", pk_l4:"Plan adjustments along the way",
-      pk_join:"Join on WhatsApp", pk_pay:"Pay by bank transfer",
+      pk_join:"Join on WhatsApp",
       pk2_tag:"GREAT VALUE", pk2_h:"Weekly Follow-up",
       pk2_l3:"Weekly follow-up via WhatsApp",
       why_h:"Why we recommend Daily Follow-up",
@@ -86,6 +89,7 @@
       btn:"العربية"
     },
     ar: {
+    pk_pay:"اشترك وادفع الآن", pk_ask:"اسأل على واتساب", pm_online:"الدفع الإلكتروني", pay_online_h:"ادفع أونلاين بالكارت أو المحفظة", pay_online_p:"اكتب بياناتك وهننقلك لصفحة كاشير الآمنة لإتمام الدفع. إحنا مش بنشوف بيانات الكارت أبداً.", f_name:"الاسم بالكامل", f_phone:"رقم الواتساب", f_email:"الإيميل (اختياري)", pay_now:"ادفع الآن", pay_wait:"استنى لحظة…", pay_err:"مقدرناش نبدأ الدفع. جرّب تاني أو ادفع بتحويل بنكي.", pay_need:"من فضلك اكتب اسمك ورقم الواتساب.", pay_done:"شكراً! جاري تأكيد الدفع. ابعتلنا على واتساب لنبدأ.", or_bank:"أو ادفع بتحويل بنكي",
       title_home:"هيلث لايف | نظام غذائي وخطة تمارين",
       title_results:"التحولات | هيلث لايف",
       title_pay:"الدفع بالتحويل البنكي | هيلث لايف",
@@ -103,7 +107,7 @@
       pk_h:"باقات 3 شهور", pk_sub:"أسعار مخفضة لفترة محدودة. كلتا الباقتين تشملان النظام الغذائي وخطة التمارين كاملة.",
       pk1_tag:"⭐ الباقة الموصى بها", pk1_h:"متابعة يومية", pk_dur:"لمدة 3 شهور",
       pk_l1:"نظام غذائي مخصص", pk_l2:"خطة تمارين مخصصة", pk1_l3:"متابعة يومية مع الكابتن", pk_l4:"تعديل الخطة على طول الطريق",
-      pk_join:"اشترك عبر واتساب", pk_pay:"ادفع بالتحويل البنكي",
+      pk_join:"اشترك عبر واتساب",
       pk2_tag:"قيمة ممتازة", pk2_h:"متابعة أسبوعية",
       pk2_l3:"متابعة أسبوعية عبر واتساب",
       why_h:"لماذا ننصح بالمتابعة اليومية؟",
@@ -262,6 +266,39 @@
     if (nameEl) nameEl.addEventListener("input", sync);
     sync();
   }
+
+  /* online payment: ON only when PAYMENT_API is set */
+  var LIVE = !!PAYMENT_API;
+  document.querySelectorAll("[data-live]").forEach(function(el){ el.hidden = !LIVE; });
+  document.querySelectorAll("[data-offline]").forEach(function(el){ el.hidden = LIVE; });
+  var payBtn = document.getElementById("payNow");
+  if (payBtn && LIVE) {
+    var msgEl = document.getElementById("payMsg");
+    var say = function(k){ if (msgEl) msgEl.textContent = k ? T[lang][k] : ""; };
+    try {
+      if (new URLSearchParams(location.search).get("status") === "done") say("pay_done");
+    } catch(e) {}
+    payBtn.addEventListener("click", function(){
+      var n = document.getElementById("pName").value.trim();
+      var p = document.getElementById("pPhone").value.trim();
+      var e = document.getElementById("pEmail").value.trim();
+      if (n.length < 2 || p.replace(/\D/g,"").length < 7) { say("pay_need"); return; }
+      payBtn.disabled = true; say("pay_wait");
+      fetch(PAYMENT_API, { method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({ plan:plan, name:n, phone:p, email:e, lang:lang }) })
+        .then(function(r){ return r.json(); })
+        .then(function(d){ if (d && d.url) { location.href = d.url; } else { throw 0; } })
+        .catch(function(){ payBtn.disabled = false; say("pay_err"); });
+    });
+  }
+  /* whole package card opens the payment page */
+  document.querySelectorAll(".plan[data-plan]").forEach(function(c){
+    c.style.cursor = "pointer";
+    c.addEventListener("click", function(ev){
+      if (ev.target.closest("a,button")) return;
+      location.href = "payment.html?plan=" + c.getAttribute("data-plan");
+    });
+  });
 
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
