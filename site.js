@@ -86,6 +86,16 @@
       pm_h:"Payment Methods", pm_now:"Available now", pm_bank:"Bank transfer", pm_soon:"Coming soon",
       pm_visa:"Visa", pm_mc:"Mastercard", pm_meeza:"Meeza", pm_apple:"Apple Pay", pm_vf:"Vodafone Cash", pm_or:"Orange Cash", pm_et:"Etisalat Cash (e&)", pm_banks:"Other bank wallets",
       pm_note:"Online payment by card and mobile wallet is being set up. For now, please pay by bank transfer.",
+            nav_book:"Recipe Book", title_book:"HealthLife Recipes Book | HealthLife",
+      fx_note:"Prices are in US dollars. You pay the equivalent in Egyptian pounds at the current exchange rate. The exact amount is shown on the secure Kashier page before you pay.",
+      plan_book:"HealthLife Recipes book",
+      msg_order_book:"Hello Coach Abdelrahman, I paid online for the HealthLife Recipes book. My order number is: {order}. Please send me my copy.",
+      bk_h:"HealthLife Recipes", bk_p:"72 halal recipes from 24 world kitchens. Every ingredient in grams, every calorie counted.",
+      bk_price_l:"Price", bk_now:"Buy the book",
+      bk_1:"72 complete recipes with ingredient weights and step-by-step method", bk_2:"Calories per serving and for the whole recipe", bk_3:"No pork and no alcohol in any recipe", bk_4:"Food science and allergen information for each kitchen, with a references page", bk_5:"126-page PDF in English, easy to read on phone, tablet or computer",
+      bk_how_h:"How you get your copy", bk_how:"After payment, send your order number to us on WhatsApp. We send your personal copy of the book (PDF) with its opening code, usually within 24 hours.",
+      bk_terms_p:"Your copy is personal and for your own use only. It is a digital product: once your copy has been delivered the amount is non-refundable. If it is not delivered within 24 hours of payment confirmation, you may request a refund. The book gives general information and is not medical advice.",
+      bk_thx_p:"Your payment is being confirmed. Send us your order number on WhatsApp and we will send your copy of the book.",
       btn:"العربية"
     },
     ar: {
@@ -154,14 +164,24 @@
       pm_h:"طرق الدفع", pm_now:"متاح الآن", pm_bank:"تحويل بنكي", pm_soon:"قريبًا",
       pm_visa:"فيزا", pm_mc:"ماستركارد", pm_meeza:"ميزة", pm_apple:"أبل باي", pm_vf:"فودافون كاش", pm_or:"أورانج كاش", pm_et:"اتصالات كاش (e&)", pm_banks:"محافظ البنوك الأخرى",
       pm_note:"جاري تجهيز الدفع الإلكتروني بالبطاقات والمحافظ الإلكترونية. حاليًا يُرجى الدفع بالتحويل البنكي.",
+            nav_book:"كتاب الوصفات", title_book:"كتاب HealthLife Recipes | هيلث لايف",
+      fx_note:"الأسعار بالدولار الأمريكي. هتدفع ما يعادلها بالجنيه المصري بسعر الصرف الحالي، والمبلغ الدقيق بيظهر لك في صفحة كاشير الآمنة قبل ما تدفع.",
+      plan_book:"كتاب HealthLife Recipes",
+      msg_order_book:"أهلاً كابتن عبدالرحمن، دفعت أونلاين ثمن كتاب HealthLife Recipes. رقم طلبي: {order}. من فضلك ابعتلي نسختي.",
+      bk_h:"HealthLife Recipes", bk_p:"72 وصفة حلال من 24 مطبخ حول العالم. كل مكوّن بالجرام وكل سعر حراري محسوب. (الكتاب بالإنجليزية)",
+      bk_price_l:"السعر", bk_now:"اشترِ الكتاب",
+      bk_1:"72 وصفة كاملة بأوزان المكونات وخطوات التحضير", bk_2:"السعرات لكل حصة وللوصفة كاملة", bk_3:"بدون لحم خنزير وبدون كحول في أي وصفة", bk_4:"معلومات علمية وعن مسببات الحساسية لكل مطبخ مع صفحة مراجع", bk_5:"ملف PDF من 126 صفحة بالإنجليزية، سهل القراءة على الموبايل أو التابلت أو الكمبيوتر",
+      bk_how_h:"إزاي تستلم نسختك", bk_how:"بعد الدفع ابعتلنا رقم الطلب على واتساب. هنبعتلك نسختك الشخصية من الكتاب (PDF) مع كود الفتح، عادةً خلال 24 ساعة.",
+      bk_terms_p:"نسختك شخصية ولاستخدامك أنت فقط. هذا منتج رقمي: بعد تسليم نسختك لا يمكن استرداد المبلغ. وإذا لم يتم التسليم خلال 24 ساعة من تأكيد الدفع يمكنك طلب الاسترداد. الكتاب يقدم معلومات عامة وليس نصيحة طبية.",
+      bk_thx_p:"جاري تأكيد دفعتك. ابعتلنا رقم الطلب على واتساب وهنبعتلك نسختك من الكتاب.",
       btn:"English"
     }
   };
 
-  var PLANS = { daily:{amount:"$250", key:"plan_daily"}, weekly:{amount:"$100", key:"plan_weekly"} };
+  var PLANS = { daily:{amount:"$250", key:"plan_daily"}, weekly:{amount:"$100", key:"plan_weekly"}, book:{amount:"$4.99", key:"plan_book"} };
   var page = document.body.getAttribute("data-page") || "home";
   var lang = "en";
-  var plan = "daily";
+  var plan = document.body.getAttribute("data-plan") || "daily";
 
   try {
     var saved = localStorage.getItem("hl_lang");
@@ -205,7 +225,7 @@
     document.querySelectorAll("[data-wa]").forEach(function(a){
       var kind = a.getAttribute("data-wa");
       if (kind === "paid") a.href = paidLink();
-      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(d.msg_order.replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
+      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent((page === "book" ? d.msg_order_book : d.msg_order).replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
       else a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(d["msg_" + kind]);
     });
     var btn = document.getElementById("langBtn");
@@ -306,12 +326,9 @@
   var payBtn = document.getElementById("payNow");
   var priceEl = document.getElementById("onlinePrice");
   if (LIVE && priceEl) {
-    var showPrice = function(d){ var c = d.currency || "EGP"; priceEl.textContent = (lang === "ar" ? "سعر الدفع الأونلاين: " : "Online price: ") + d.prices[plan].toLocaleString("en-US") + " " + (c === "EGP" && lang === "ar" ? "جنيه" : c); };
-    fetch(PAYMENT_API).then(function(r){ return r.json(); }).then(function(d){
-      window.__hlPrices = d; showPrice(d);
-      document.querySelectorAll('input[name="plan"]').forEach(function(r){ r.addEventListener("change", function(){ showPrice(d); }); });
-      var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function(){ setTimeout(function(){ showPrice(d); }, 0); });
-    }).catch(function(){});
+    var showPrice = function(){ priceEl.textContent = T[lang].fx_note; };
+    showPrice();
+    var lbBtn = document.getElementById("langBtn"); if (lbBtn) lbBtn.addEventListener("click", function(){ setTimeout(showPrice, 0); });
   }
   if (payBtn && LIVE) {
     var msgEl = document.getElementById("payMsg");
