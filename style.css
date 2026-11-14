@@ -161,3 +161,5 @@ footer{text-align:center;padding:28px 20px;color:var(--muted);border-top:1px sol
 [hidden]{display:none!important}
 
 .powered{margin-top:8px;font-size:.85rem;opacity:.85}.powered a{color:var(--lime);font-weight:700}
+.field input[type=radio]{width:auto;flex:none;padding:0;margin:0;accent-color:var(--lime,#c6ee0a)}
+.field label.ed{display:flex;gap:10px;align-items:center;margin:6px 0;cursor:pointer;color:var(--text,#fff)}
