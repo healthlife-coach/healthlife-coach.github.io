@@ -42,6 +42,8 @@
     <ul>
       <li><a href="index.html" data-i18n="nav_home">Home</a></li>
       <li><a href="index.html#packages" data-i18n="nav_packages">Packages</a></li>
+      <li><a href="book.html" data-i18n="nav_book">Recipe Book</a></li>
+      <li><a href="fitness.html" data-i18n="nav_fitness">Fitness Book</a></li>
       <li><a href="transformations.html" data-i18n="nav_results">Transformations</a></li>
       <li><a href="payment.html" data-i18n="nav_pay" class="active">Payment</a></li>
       <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
@@ -60,7 +62,12 @@
     <h2 data-i18n="thx_h">Thank you!</h2>
     <p class="sub" data-i18n="bk_thx_p"></p>
     <p class="note"><span data-i18n="thx_o">Order number</span>: <b class="ltr" id="orderNo" style="color:var(--lime)"></b></p>
-    <div class="btns" style="justify-content:center"><a class="btn wa" data-wa="order" href="#" target="_blank" rel="noopener" data-i18n="thx_btn">Send order number on WhatsApp</a></div>
+    <div id="dlBox" style="margin-top:18px">
+      <p class="sub" id="dlMsg" role="status"></p>
+      <div class="btns" style="justify-content:center"><a class="btn primary" id="dlBtn" href="#" hidden></a></div>
+      <p class="note" id="dlNote" hidden></p>
+      <div class="btns" style="justify-content:center"><a class="btn wa" id="dlAsk" data-wa="order" href="#" target="_blank" rel="noopener" hidden></a></div>
+    </div>
   </div>
 </section>
 
@@ -72,7 +79,7 @@
         <ul class="list">
           <li data-i18n="bk_1"></li><li data-i18n="bk_2"></li><li data-i18n="bk_3"></li><li data-i18n="bk_4"></li><li data-i18n="bk_5"></li>
         </ul>
-        <div class="price">$4.99</div>
+        <div class="price">$4.99 <small id="egpNow" style="font-size:16px;color:var(--muted);font-weight:500"></small></div>
         <h3 data-i18n="bk_how_h">How you get your copy</h3>
         <p class="sub" data-i18n="bk_how"></p>
       </div>
@@ -84,6 +91,9 @@
   <div class="wrap">
     <h2 data-i18n="bk_now">Buy the book</h2>
     <p class="sub" data-i18n="pay_online_p"></p>
+    <div class="field"><label data-i18n="ed_l">Choose your edition</label>
+      <label style="display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer"><input type="radio" name="edition" value="ar"><span data-i18n="ed_ar">Arabic edition</span></label>
+      <label style="display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer"><input type="radio" name="edition" value="en" checked><span data-i18n="ed_en">English edition</span></label></div>
     <div class="field"><label for="pName" data-i18n="f_name">Full name</label><input id="pName" type="text" autocomplete="name" maxlength="80"></div>
     <div class="field"><label for="pPhone" data-i18n="f_phone">WhatsApp number</label><input id="pPhone" type="tel" autocomplete="tel" maxlength="20" dir="ltr"></div>
     <div class="field"><label for="pEmail" data-i18n="f_email">Email (optional)</label><input id="pEmail" type="email" autocomplete="email" maxlength="100" dir="ltr"></div>

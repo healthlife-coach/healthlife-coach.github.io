@@ -81,21 +81,32 @@
       msg_daily:"Hello Coach, I want the 3-month DAILY follow-up package ($250)",
       msg_weekly:"Hello Coach, I want the 3-month WEEKLY follow-up package ($100)",
       msg_plain:"Hello Coach",
-      msg_paid:"Hello Coach, I have transferred {amount} for the 3-month {plan} package. My name: {name}. I am sending the receipt now.",
-      plan_daily:"DAILY follow-up", plan_weekly:"WEEKLY follow-up",
+      msg_paid:"Hello Coach, I have transferred {amount} for the {plan} package. My name: {name}. I am sending the receipt now.",
+      plan_daily:"3-month DAILY follow-up", plan_weekly:"3-month WEEKLY follow-up",
       pm_h:"Payment Methods", pm_now:"Available now", pm_bank:"Bank transfer", pm_soon:"Coming soon",
       pm_visa:"Visa", pm_mc:"Mastercard", pm_meeza:"Meeza", pm_apple:"Apple Pay", pm_vf:"Vodafone Cash", pm_or:"Orange Cash", pm_et:"Etisalat Cash (e&)", pm_banks:"Other bank wallets",
       pm_note:"Online payment by card and mobile wallet is being set up. For now, please pay by bank transfer.",
-            nav_book:"Recipe Book", title_book:"HealthLife Recipes Book | HealthLife",
+            nav_book:"Recipe Book", pky_h:"1-Year Packages", pky_sub:"Best value: a full year of follow-up with a big discount.", pky_dur:"for 1 year", pky1_h:"1-Year Daily Follow-up", pky2_h:"1-Year Weekly Follow-up", pky1_tag:"SAVE $700", pky2_tag:"SAVE $600", msg_yearly_daily:"Hello Coach, I want the 1-year DAILY follow-up package ($1000).", msg_yearly_weekly:"Hello Coach, I want the 1-year WEEKLY follow-up package ($400).", home_fit_h:"Strength & Fitness Encyclopedia", home_fit_p:"200+ pages: military, weights, CrossFit, home fat-burning, hormones, recovery and consistency. Arabic & English editions.", home_fit_btn:"See the book - $10", title_book:"HealthLife Recipes Book | HealthLife",
       fx_note:"Prices are in US dollars. You pay the equivalent in Egyptian pounds at the current exchange rate. The exact amount is shown on the secure Kashier page before you pay.",
       plan_book:"HealthLife Recipes book",
       msg_order_book:"Hello Coach Abdelrahman, I paid online for the HealthLife Recipes book. My order number is: {order}. Please send me my copy.",
       bk_h:"HealthLife Recipes", bk_p:"72 halal recipes from 24 world kitchens. Every ingredient in grams, every calorie counted.",
       bk_price_l:"Price", bk_now:"Buy the book",
-      bk_1:"72 complete recipes with ingredient weights and step-by-step method", bk_2:"Calories per serving and for the whole recipe", bk_3:"No pork and no alcohol in any recipe", bk_4:"Food science and allergen information for each kitchen, with a references page", bk_5:"126-page PDF in English, easy to read on phone, tablet or computer",
-      bk_how_h:"How you get your copy", bk_how:"After payment, send your order number to us on WhatsApp. We send your personal copy of the book (PDF) with its opening code, usually within 24 hours.",
+      bk_1:"72 complete recipes with ingredient weights and step-by-step method", bk_2:"Calories per serving and for the whole recipe", bk_3:"No pork and no alcohol in any recipe", bk_4:"Food science and allergen information for each kitchen, with a references page", bk_5:"126-page PDF in Arabic or English, easy to read on phone, tablet or computer",
+      bk_how_h:"How you get your copy", bk_how:"After payment your personal download link appears right here, instantly. You can also ask for your copy on WhatsApp.",
       bk_terms_p:"Your copy is personal and for your own use only. It is a digital product: once your copy has been delivered the amount is non-refundable. If it is not delivered within 24 hours of payment confirmation, you may request a refund. The book gives general information and is not medical advice.",
-      bk_thx_p:"Your payment is being confirmed. Send us your order number on WhatsApp and we will send your copy of the book.",
+      bk_thx_p:"Thank you! We are confirming your payment. Your download link will appear below in a moment.",
+
+      nav_fitness:"Fitness Book", title_fitness:"Strength & Fitness Encyclopedia | HealthLife", plan_fitness:"Strength & Fitness Encyclopedia", plan_yearly_daily:"1-year DAILY follow-up", plan_yearly_weekly:"1-year WEEKLY follow-up",
+      msg_order_fitness:"Hello Coach Abdelrahman, I paid online for the Strength & Fitness Encyclopedia. My order number is: {order}. Please send me my copy.",
+      ft_h:"The Strength & Fitness Encyclopedia", ft_p:"The science of strength, fat loss, resilience and courage: military, weights, CrossFit and home training, in one book.",
+      ft_1:"Over 200 pages with 49 illustrations: step-by-step exercise figures and science diagrams", ft_2:"17 chapters: hormones and nerves, men and women, muscle biomechanics, tendons and fascia, ancient and modern military training, weights, CrossFit and HIIT, fighter conditioning", ft_3:"Complete home fat-burning workouts with exact timings, sets and reps; 12-week plans for beginner, intermediate and advanced", ft_4:"Training while fasting, hydration, breathing and meditation, massage and recovery, with clear safety rules", ft_5:"Motivation science: how to stay consistent even on the worst days. Available in Arabic or English (PDF)",
+      ft_how:"After payment your personal download link appears right here, instantly. You can also ask for your copy on WhatsApp.",
+      ft_terms_p:"This is a digital product for your personal use only; sharing or reselling it is not allowed. Once the download link has been issued the amount is non-refundable. If you cannot download your copy, contact us and we will send it or refund you. The book gives general educational information and is not medical advice; see a doctor before starting, especially with a health condition.",
+      ft_thx_p:"Thank you! We are confirming your payment. Your download link will appear below in a moment.",
+      ed_l:"Choose your edition", ed_ar:"Arabic edition", ed_en:"English edition",
+      dl_wait:"Confirming your payment… this usually takes a few seconds.", dl_btn:"Download your book (PDF)", dl_ready:"Payment confirmed. Your download is ready.", dl_note:"The link works for 72 hours and you can re-open this page any time (for 30 days) to get a new link. Please keep your copy private.", dl_fail:"The payment was not completed. You have not been charged. You can try again.", dl_review:"We received your payment and are checking it. Please message us on WhatsApp with your order number and we will send your copy.", dl_slow:"Still confirming. You can wait here, or tap the button below to ask for your copy on WhatsApp.", dl_ask:"Ask for my copy on WhatsApp",
+      egp_now:"About {egp} EGP today",
       btn:"العربية"
     },
     ar: {
@@ -159,26 +170,36 @@
       msg_daily:"مرحبًا كابتن، أريد باقة الـ3 شهور بمتابعة يومية (250$)",
       msg_weekly:"مرحبًا كابتن، أريد باقة الـ3 شهور بمتابعة أسبوعية (100$)",
       msg_plain:"مرحبًا كابتن",
-      msg_paid:"مرحبًا كابتن، قمت بتحويل {amount} لباقة الـ3 شهور بـ{plan}. اسمي: {name}. سأرسل لك الإيصال الآن.",
-      plan_daily:"متابعة يومية", plan_weekly:"متابعة أسبوعية",
+      msg_paid:"مرحبًا كابتن، قمت بتحويل {amount} لباقة {plan}. اسمي: {name}. سأرسل لك الإيصال الآن.",
+      plan_daily:"متابعة يومية لمدة 3 شهور", plan_weekly:"متابعة أسبوعية لمدة 3 شهور",
       pm_h:"طرق الدفع", pm_now:"متاح الآن", pm_bank:"تحويل بنكي", pm_soon:"قريبًا",
       pm_visa:"فيزا", pm_mc:"ماستركارد", pm_meeza:"ميزة", pm_apple:"أبل باي", pm_vf:"فودافون كاش", pm_or:"أورانج كاش", pm_et:"اتصالات كاش (e&)", pm_banks:"محافظ البنوك الأخرى",
       pm_note:"جاري تجهيز الدفع الإلكتروني بالبطاقات والمحافظ الإلكترونية. حاليًا يُرجى الدفع بالتحويل البنكي.",
-            nav_book:"كتاب الوصفات", title_book:"كتاب HealthLife Recipes | هيلث لايف",
+            nav_book:"كتاب الوصفات", pky_h:"باقات السنة الكاملة", pky_sub:"أفضل قيمة: سنة كاملة من المتابعة بخصم كبير.", pky_dur:"لمدة سنة", pky1_h:"متابعة يومية لمدة سنة", pky2_h:"متابعة أسبوعية لمدة سنة", pky1_tag:"وفّر 700$", pky2_tag:"وفّر 600$", msg_yearly_daily:"مرحبًا كابتن، أريد باقة المتابعة اليومية لمدة سنة (1000$).", msg_yearly_weekly:"مرحبًا كابتن، أريد باقة المتابعة الأسبوعية لمدة سنة (400$).", home_fit_h:"موسوعة اللياقة والقوة", home_fit_p:"أكثر من 200 صفحة: عسكري، حديد، كروسفت، حرق دهون في البيت، هرمونات، استشفاء وثبات. نسختان عربي وإنجليزي.", home_fit_btn:"شوف الكتاب - 10$", title_book:"كتاب HealthLife Recipes | هيلث لايف",
       fx_note:"الأسعار بالدولار الأمريكي. هتدفع ما يعادلها بالجنيه المصري بسعر الصرف الحالي، والمبلغ الدقيق بيظهر لك في صفحة كاشير الآمنة قبل ما تدفع.",
       plan_book:"كتاب HealthLife Recipes",
       msg_order_book:"أهلاً كابتن عبدالرحمن، دفعت أونلاين ثمن كتاب HealthLife Recipes. رقم طلبي: {order}. من فضلك ابعتلي نسختي.",
       bk_h:"HealthLife Recipes", bk_p:"72 وصفة حلال من 24 مطبخ حول العالم. كل مكوّن بالجرام وكل سعر حراري محسوب. (الكتاب بالإنجليزية)",
       bk_price_l:"السعر", bk_now:"اشترِ الكتاب",
       bk_1:"72 وصفة كاملة بأوزان المكونات وخطوات التحضير", bk_2:"السعرات لكل حصة وللوصفة كاملة", bk_3:"بدون لحم خنزير وبدون كحول في أي وصفة", bk_4:"معلومات علمية وعن مسببات الحساسية لكل مطبخ مع صفحة مراجع", bk_5:"ملف PDF من 126 صفحة بالإنجليزية، سهل القراءة على الموبايل أو التابلت أو الكمبيوتر",
-      bk_how_h:"إزاي تستلم نسختك", bk_how:"بعد الدفع ابعتلنا رقم الطلب على واتساب. هنبعتلك نسختك الشخصية من الكتاب (PDF) مع كود الفتح، عادةً خلال 24 ساعة.",
+      bk_how_h:"إزاي تستلم نسختك", bk_how:"بعد الدفع هيظهر لك رابط تحميل نسختك هنا فوراً. وتقدر كمان تطلب نسختك على واتساب.",
       bk_terms_p:"نسختك شخصية ولاستخدامك أنت فقط. هذا منتج رقمي: بعد تسليم نسختك لا يمكن استرداد المبلغ. وإذا لم يتم التسليم خلال 24 ساعة من تأكيد الدفع يمكنك طلب الاسترداد. الكتاب يقدم معلومات عامة وليس نصيحة طبية.",
-      bk_thx_p:"جاري تأكيد دفعتك. ابعتلنا رقم الطلب على واتساب وهنبعتلك نسختك من الكتاب.",
+      bk_thx_p:"شكراً لك! بنأكد دفعتك. هيظهر رابط التحميل تحت بعد لحظات.",
+      nav_fitness:"كتاب اللياقة", title_fitness:"موسوعة اللياقة والقوة | هيلث لايف", plan_fitness:"موسوعة اللياقة والقوة", plan_yearly_daily:"متابعة يومية لمدة سنة", plan_yearly_weekly:"متابعة أسبوعية لمدة سنة",
+      msg_order_fitness:"أهلاً كابتن عبدالرحمن، دفعت أونلاين ثمن موسوعة اللياقة والقوة. رقم طلبي: {order}. من فضلك ابعتلي نسختي.",
+      ft_h:"موسوعة اللياقة والقوة", ft_p:"علم القوة وحرق الدهون والصلابة والشجاعة: عسكري وأثقال وكروس فيت وتمارين منزلية في كتاب واحد.",
+      ft_1:"أكثر من 200 صفحة مع 49 صورة: رسومات تمارين خطوة بخطوة ورسوم علمية", ft_2:"17 فصلاً: الهرمونات والأعصاب، الرجال والنساء، ميكانيكا العضلة، الأوتار والنسيج الضام، تدريب الحضارات القديمة والجيوش الحديثة، الأثقال، كروس فيت وHIIT، لياقة المقاتل", ft_3:"تمارين منزلية كاملة لحرق الدهون بالتوقيتات والمجموعات والتكرارات، وخطط 12 أسبوعاً للمبتدئ والمتوسط والمتقدم", ft_4:"التمرين أثناء الصيام، الترطيب، التنفس والتأمل، المساج والاستشفاء، مع قواعد أمان واضحة", ft_5:"علم الدافع: إزاي تستمر حتى في أسوأ الأيام. متاح بالعربي أو الإنجليزي (PDF)",
+      ft_how:"بعد الدفع هيظهر لك رابط تحميل نسختك هنا فوراً. وتقدر كمان تطلب نسختك على واتساب.",
+      ft_terms_p:"هذا منتج رقمي لاستخدامك الشخصي فقط، ولا يُسمح بمشاركته أو إعادة بيعه. بعد إصدار رابط التحميل لا يمكن استرداد المبلغ. وإذا لم تستطع تحميل نسختك تواصل معنا وسنرسلها لك أو نرد المبلغ. الكتاب يقدم معلومات تثقيفية عامة وليس نصيحة طبية؛ استشر طبيباً قبل البدء خاصة مع وجود مرض.",
+      ft_thx_p:"شكراً لك! بنأكد دفعتك. هيظهر رابط التحميل تحت بعد لحظات.",
+      ed_l:"اختر النسخة", ed_ar:"النسخة العربية", ed_en:"النسخة الإنجليزية",
+      dl_wait:"جاري تأكيد الدفع… بياخد ثواني عادةً.", dl_btn:"حمّل كتابك (PDF)", dl_ready:"تم تأكيد الدفع. التحميل جاهز.", dl_note:"الرابط يعمل 72 ساعة، وتقدر تفتح الصفحة دي في أي وقت (لمدة 30 يوماً) للحصول على رابط جديد. من فضلك حافظ على خصوصية نسختك.", dl_fail:"لم تكتمل عملية الدفع ولم يتم خصم أي مبلغ. تقدر تحاول مرة أخرى.", dl_review:"استلمنا دفعتك وبنراجعها. ابعتلنا رقم الطلب على واتساب وهنبعتلك نسختك.", dl_slow:"لسه بنأكد. تقدر تنتظر هنا أو تضغط الزر تحت وتطلب نسختك على واتساب.", dl_ask:"اطلب نسختي على واتساب",
+      egp_now:"حوالي {egp} جنيه بسعر اليوم",
       btn:"English"
     }
   };
 
-  var PLANS = { daily:{amount:"$250", key:"plan_daily"}, weekly:{amount:"$100", key:"plan_weekly"}, book:{amount:"$4.99", key:"plan_book"} };
+  var PLANS = { daily:{amount:"$250", key:"plan_daily"}, weekly:{amount:"$100", key:"plan_weekly"}, book:{amount:"$4.99", key:"plan_book"}, fitness:{amount:"$10", key:"plan_fitness"}, yearly_daily:{amount:"$1000", key:"plan_yearly_daily"}, yearly_weekly:{amount:"$400", key:"plan_yearly_weekly"} };
   var page = document.body.getAttribute("data-page") || "home";
   var lang = "en";
   var plan = document.body.getAttribute("data-plan") || "daily";
@@ -225,9 +246,13 @@
     document.querySelectorAll("[data-wa]").forEach(function(a){
       var kind = a.getAttribute("data-wa");
       if (kind === "paid") a.href = paidLink();
-      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent((page === "book" ? d.msg_order_book : d.msg_order).replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
+      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent((page === "book" ? d.msg_order_book : page === "fitness" ? d.msg_order_fitness : d.msg_order).replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
       else a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(d["msg_" + kind]);
     });
+    document.querySelectorAll("img[data-src-en]").forEach(function(im){ im.src = im.getAttribute("data-src-" + l); });
+    if (typeof refreshEgp === "function") refreshEgp();
+    if (typeof syncEd === "function") syncEd();
+    if (typeof refreshDl === "function") refreshDl();
     var btn = document.getElementById("langBtn");
     if (btn) btn.textContent = d.btn;
     try { localStorage.setItem("hl_lang", l); } catch(e) {}
@@ -271,7 +296,7 @@
   if (picks.length) {
     try {
       var q = new URLSearchParams(location.search).get("plan");
-      if (q === "daily" || q === "weekly") plan = q;
+      if (q === "daily" || q === "weekly" || q === "yearly_daily" || q === "yearly_weekly") plan = q;
     } catch(e) {}
     var amountEl = document.getElementById("amountOut");
     var sync = function(){
@@ -294,7 +319,7 @@
   try {
     var qo = new URLSearchParams(location.search);
     var o = qo.get("order") || "";
-    if (qo.get("status") === "done" && /^HL-[a-z]+-\d+-[a-z0-9]+$/i.test(o)) orderId = o;
+    if (qo.get("status") === "done" && /^HL-[a-z_]+-[a-z0-9-]+$/i.test(o)) orderId = o;
   } catch(e) {}
   if (LIVE) {
     T.en.pay_page_h = "Pay Online or by Bank Transfer";
@@ -323,6 +348,43 @@
     apply(lang);
     try { thanks.scrollIntoView(); } catch(e) {}
   }
+  /* ---- book pages: show the price in EGP at today's rate ---- */
+  var egpEl = document.getElementById("egpNow"); var egpVal = 0;
+  function refreshEgp(){ if (egpEl && egpVal) egpEl.textContent = T[lang].egp_now.replace("{egp}", egpVal.toLocaleString("en-US")); }
+  if (LIVE && egpEl) {
+    fetch(PAYMENT_API).then(function(r){ return r.json(); }).then(function(d){
+      var usd = d && d.usd && d.usd[plan]; if (usd && d.rate) { egpVal = Math.ceil(usd * d.rate); refreshEgp(); }
+    }).catch(function(){});
+  }
+  /* ---- after payment: confirm with the server and show the download button ---- */
+  var dlBox = document.getElementById("dlBox"); var dlState = "wait", dlUrl = "";
+  function refreshDl(){
+    if (!dlBox) return; var d = T[lang];
+    var msg = dlState === "wait" ? d.dl_wait : dlState === "slow" ? d.dl_slow : dlState === "paid" ? d.dl_ready : dlState === "failed" ? d.dl_fail : dlState === "review" ? d.dl_review : "";
+    var m = document.getElementById("dlMsg"); if (m) m.textContent = msg;
+    var b = document.getElementById("dlBtn"); if (b) { b.hidden = !(dlState === "paid" && dlUrl); if (dlUrl) b.href = dlUrl; b.textContent = d.dl_btn; }
+    var n = document.getElementById("dlNote"); if (n) { n.hidden = dlState !== "paid"; n.textContent = d.dl_note; }
+    var w = document.getElementById("dlAsk"); if (w) { w.hidden = !(dlState === "slow" || dlState === "review" || dlState === "paid"); w.textContent = d.dl_ask; }
+  }
+  if (dlBox && LIVE && orderId) {
+    var tries = 0;
+    var poll = function(){
+      tries++;
+      fetch(PAYMENT_API.replace(/\/$/,"") + "/order?id=" + encodeURIComponent(orderId)).then(function(r){ return r.json(); }).then(function(d){
+        if (d.state === "paid") { dlState = "paid"; dlUrl = d.download || ""; if (!dlUrl) dlState = "review"; refreshDl(); return; }
+        if (d.state === "failed" || d.state === "expired") { dlState = "failed"; refreshDl(); return; }
+        if (d.state === "review") { dlState = "review"; refreshDl(); return; }
+        if (tries > 30) { dlState = "slow"; refreshDl(); return; }
+        if (tries > 12) { dlState = "slow"; refreshDl(); }
+        setTimeout(poll, 4000);
+      }).catch(function(){ if (tries < 40) setTimeout(poll, 5000); else { dlState = "slow"; refreshDl(); } });
+    };
+    refreshDl(); poll();
+  }
+  var edTouched = false;
+  document.querySelectorAll("input[name=edition]").forEach(function(r){ r.addEventListener("change", function(){ edTouched = true; }); });
+  function syncEd(){ if (edTouched) return; var r = document.querySelector("input[name=edition][value=" + lang + "]"); if (r) r.checked = true; }
+  syncEd();
   var payBtn = document.getElementById("payNow");
   var priceEl = document.getElementById("onlinePrice");
   if (LIVE && priceEl) {
@@ -342,7 +404,7 @@
       if (tc && !tc.checked) { say("terms_need"); return; }
       payBtn.disabled = true; say("pay_wait");
       fetch(PAYMENT_API, { method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({ plan:plan, name:n, phone:p, email:e, lang:lang }) })
+        body: JSON.stringify({ plan:plan, name:n, phone:p, email:e, lang:lang, edition:(document.querySelector("input[name=edition]:checked")||{}).value || lang }) })
         .then(function(r){ return r.json(); })
         .then(function(d){ if (d && d.url) { location.href = d.url; } else { throw 0; } })
         .catch(function(){ payBtn.disabled = false; say("pay_err"); });
