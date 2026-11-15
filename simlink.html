@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>أداة لينك المحاكي (للكابتن)</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<style>
+[hidden]{display:none!important}
+.box{max-width:640px;margin:40px auto;padding:0 20px}
+.out{background:#02281a;border:1px solid var(--line);border-radius:12px;padding:12px;direction:ltr;word-break:break-all;font-size:14px;margin:10px 0}
+.goals{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.goals label{display:flex;gap:6px;align-items:center;padding:8px 14px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.goals input{width:auto}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="card">
+    <h2 style="color:var(--lime);margin-bottom:6px">لينك المحاكي للعميل</h2>
+    <p style="color:var(--muted);margin-bottom:18px">اكتب اسم العميل وهدفه، وخد لينك تبعته له. لما يفتحه، الهدف بيكون مكتوب جاهز، ويشوف شكله بعد التغيير.</p>
+
+    <div class="field"><label for="nm">اسم العميل (اختياري، بيظهر لك في الإحصائيات)</label><input id="nm" type="text" maxlength="30" placeholder="مثلاً Ahmed"></div>
+    <div class="field"><label>الهدف</label>
+      <div class="goals">
+        <label><input type="radio" name="g" value="lose" checked>خسارة وزن</label>
+        <label><input type="radio" name="g" value="muscle">بناء عضل</label>
+        <label><input type="radio" name="g" value="gain">زيادة وزن</label>
+      </div></div>
+    <div class="field"><label for="kg">عدد الكيلوهات (اختياري)</label><input id="kg" type="number" min="1" max="40" step="0.5" placeholder="8" dir="ltr"></div>
+    <div class="field"><label for="hh">طول العميل بالسم (اختياري)</label><input id="hh" type="number" placeholder="175" dir="ltr"></div>
+    <div class="field"><label for="ww">وزن العميل بالكجم (اختياري)</label><input id="ww" type="number" placeholder="90" dir="ltr"></div>
+    <div class="field"><label>لغة الرسالة</label>
+      <div class="goals"><label><input type="radio" name="l" value="ar" checked>عربي</label><label><input type="radio" name="l" value="en">English</label></div></div>
+
+    <h3 style="margin:18px 0 6px">اللينك</h3>
+    <div class="out" id="link"></div>
+    <div class="btns" style="justify-content:flex-start">
+      <button class="btn primary" id="copy" type="button">انسخ اللينك</button>
+      <button class="btn ghost" id="copyMsg" type="button">انسخ الرسالة كاملة</button>
+      <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">ابعتها واتساب</a>
+    </div>
+    <p id="done" style="color:var(--lime);margin-top:10px" hidden>تم النسخ ✔</p>
+    <h3 style="margin:18px 0 6px">الرسالة</h3>
+    <div class="out" id="msg" style="direction:inherit;white-space:pre-wrap"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var BASE = location.origin + location.pathname.replace(/[^\/]*$/, "") + "simulator.html";
+  var $ = function(i){return document.getElementById(i);};
+  function val(n){ var r=document.querySelector('input[name="'+n+'"]:checked'); return r?r.value:""; }
+  function build(){
+    var q=[], g=val("g"), kg=$("kg").value.trim(), h=$("hh").value.trim(), w=$("ww").value.trim(), nm=$("nm").value.trim().replace(/[^\w\- .]/g,"");
+    q.push("goal="+g); if(kg) q.push("kg="+encodeURIComponent(kg)); if(h) q.push("h="+encodeURIComponent(h)); if(w) q.push("w="+encodeURIComponent(w)); if(nm) q.push("ref="+encodeURIComponent(nm));
+    var url=BASE+"?"+q.join("&"), ar=val("l")==="ar";
+    var gw={lose:ar?"تخسّس":"lose",gain:ar?"تزوّد":"gain",muscle:ar?"تبني عضل":"build muscle"}[g];
+    var name = nm ? nm + (ar?" ":" ") : "";
+    var msg = ar
+      ? "أهلاً " + name + "👋\nعايزك تشوف شكلك بعد ما "+gw+(kg?" "+kg+" كجم":"")+". افتح اللينك، حط صورتك، وشوف النتيجة. مجاني وبياخد دقيقة، والصورة مش بتتحفظ:\n"+url
+      : "Hi " + name + "👋\nSee how you could look after you "+gw+(kg?" "+kg+" kg":"")+". Open the link, add your photo and see the result. It is free, takes a minute, and your photo is not saved:\n"+url;
+    $("link").textContent=url; $("msg").textContent=msg; $("wa").href="https://wa.me/?text="+encodeURIComponent(msg);
+    $("msg").dir = ar ? "rtl" : "ltr";
+    return {url:url,msg:msg};
+  }
+  function copy(text){ (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).catch(function(){var t=document.createElement("textarea");t.value=text;document.body.appendChild(t);t.select();try{document.execCommand("copy");}catch(e){}t.remove();}).then(function(){$("done").hidden=false;setTimeout(function(){$("done").hidden=true;},1800);}); }
+  document.querySelectorAll("input").forEach(function(i){i.addEventListener("input",build);i.addEventListener("change",build);});
+  $("copy").addEventListener("click",function(){copy(build().url);});
+  $("copyMsg").addEventListener("click",function(){copy(build().msg);});
+  build();
+})();
+</script>
+</body>
+</html>
