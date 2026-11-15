@@ -1,7 +1,7 @@
 /* HealthLife simulator page. Lead gate -> AI image via Worker (free Workers AI) -> on-device fallback. Photo is never stored. */
 (function () {
   "use strict";
-  var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev", WA = "201050747891", LIMIT = 6;
+  var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev", WA = "201050747891", LIMIT = 5;
   var MP = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
   var SEG_MODEL = "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite";
   var POSE_MODEL = "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task";
@@ -168,7 +168,8 @@
   function localCount() { try { return parseInt(localStorage.getItem("hl_sim_n") || "0", 10) || 0; } catch (e) { return 0; } }
   function localSet(n) { try { localStorage.setItem("hl_sim_n", String(n)); } catch (e) {} }
   function localInc() { localSet(localCount() + 1); }
-  function updateLeft() { $("left").textContent = t("left", { n: Math.max(0, LIMIT - localCount()), m: LIMIT }); }
+  function isUnl() { try { return localStorage.getItem("hl_sim_unl") === "1"; } catch (e) { return false; } }
+  function updateLeft() { $("left").textContent = isUnl() ? "" : t("left", { n: Math.max(0, LIMIT - localCount()), m: LIMIT }); }
   function showLimit() { $("limitBox").hidden = false; $("formBox").hidden = true; $("gate").hidden = true; $("result").hidden = true; setWaLinks(); }
   function showGate() { $("gate").hidden = false; $("formBox").hidden = true; $("limitBox").hidden = true; $("result").hidden = true; }
   function showForm() { $("gate").hidden = true; $("formBox").hidden = false; $("limitBox").hidden = true; }
@@ -205,13 +206,15 @@
     var r, d;
     try {
       r = await fetch(API + "/sim/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: TOKEN, kind: p.kind, deltaKg: p.d, weightKg: p.w, heightCm: p.h, age: p.age, w: c.width, h: c.height, image: c.toDataURL("image/jpeg", 0.85).split(",")[1] }) });
-    } catch (e) { return { fallback: true, offline: true }; }
+    } catch (e) { return localCount() >= LIMIT && !isUnl() ? { limit: true } : { fallback: true, offline: true }; }
     if (r.status === 401) return { need: true };
     try { d = await r.json(); } catch (e) { return { fallback: true, offline: true }; }
     if (d && d.ok === false) return { limit: true };
     if (!r.ok || !d) return { fallback: true, offline: true };
+    if (typeof d.limit === "number") LIMIT = d.limit;
+    try { if (d.unlimited) localStorage.setItem("hl_sim_unl", "1"); else localStorage.removeItem("hl_sim_unl"); } catch (e) {}
     var left = typeof d.remaining === "number" ? d.remaining : null;
-    if (left !== null) localSet(LIMIT - left); else localInc();
+    if (d.unlimited) localSet(0); else if (left !== null) localSet(LIMIT - left); else localInc();
     updateLeft();
     if (d.image) {
       var src = String(d.image); if (src.indexOf("data:") !== 0) src = "data:image/png;base64," + src;
@@ -280,7 +283,6 @@
     if (!$("agree").checked) return showErr("e_agree");
     var chk = SimCore.checkLimits({ heightCm: h, weightKg: w, deltaKg: d, kind: kind });
     if (!chk.ok) return showErr("e_" + chk.reason);
-    if (localCount() >= LIMIT) return showLimit();
     busy = true; $("go").disabled = true;
     try {
       status("st_ai");
@@ -353,5 +355,5 @@
   });
 
   applyTexts();
-  if (localCount() >= LIMIT) showLimit(); else if (TOKEN) showForm(); else showGate();
+  if (TOKEN) showForm(); else showGate();
 })();
