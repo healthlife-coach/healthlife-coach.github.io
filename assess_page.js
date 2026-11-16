@@ -39,7 +39,7 @@
     document.title = lang === "ar" ? "الفحص الصحي الشامل | HealthLife" : "Complete Health Screening | HealthLife";
     showPrices();
   }
-  function money(u) { return "$" + u + (state.rate && lang === "ar" ? " (≈ " + Math.ceil(u * state.rate).toLocaleString("ar-EG") + " جنيه)" : ""); }
+  function money(u) { var l = window.HLCur ? window.HLCur.local(u) : ""; return "$" + u + (l ? " (" + l + ")" : ""); }
   function showPrices() {
     var n = document.querySelectorAll(".mod input:checked").length, p = state.prices;
     var plan = n === 1 ? p.assess_one : p.assess_full;
@@ -256,6 +256,7 @@
   function back() { collect(); if (state.i > 0) { state.i--; renderStep(); } }
   window.AssessDebug = { state: state, alertsFor: alertsFor, visibleSteps: visibleSteps, buildSteps: buildSteps };
 
+  window.addEventListener("hlcur", function () { try { showPrices(); if ($("lock") && !$("lock").hidden) showLock(); } catch (e) {} });
   function setLang(l) { if (l === lang) return; if (!$("wiz").hidden) collect(); lang = l; applyUI(); if (!$("wiz").hidden) { buildSteps(); renderStep(true); } if (!$("lock").hidden) showLock(); }
 
   document.addEventListener("DOMContentLoaded", async function () {

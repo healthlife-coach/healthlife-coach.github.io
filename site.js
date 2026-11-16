@@ -97,7 +97,7 @@
       bk_terms_p:"Your copy is personal and for your own use only. It is a digital product: once your copy has been delivered the amount is non-refundable. If it is not delivered within 24 hours of payment confirmation, you may request a refund. The book gives general information and is not medical advice.",
       bk_thx_p:"Thank you! We are confirming your payment. Your download link will appear below in a moment.",
 
-      nav_fitness:"Fitness Book", nav_sim:"Simulator", nav_coach:"Client Link", sim_h:"See your future self", sim_p:"Free body simulator: enter your height and weight, add a photo, choose your goal, and see an illustration of how you could look. Your photo is not saved.", sim_btn:"Try the simulator", title_fitness:"Strength & Fitness Encyclopedia | HealthLife", plan_fitness:"Strength & Fitness Encyclopedia", plan_yearly_daily:"1-year DAILY follow-up", plan_yearly_weekly:"1-year WEEKLY follow-up",
+      nav_fitness:"Fitness Book", nav_sim:"Simulator", nav_coach:"Client Link", nav_assess:"Health Check", sim_h:"See your future self", sim_p:"Free body simulator: enter your height and weight, add a photo, choose your goal, and see an illustration of how you could look. Your photo is not saved.", sim_btn:"Try the simulator", hs_h:"Complete Health Screening", hs_p:"Answer science-based questionnaires and get a detailed report: body, mental health, child health and personality, with your indicators and next steps. Questions are free; the report starts at $4.", hs_btn:"Start the health screening", title_fitness:"Strength & Fitness Encyclopedia | HealthLife", plan_fitness:"Strength & Fitness Encyclopedia", plan_yearly_daily:"1-year DAILY follow-up", plan_yearly_weekly:"1-year WEEKLY follow-up",
       msg_order_fitness:"Hello Coach Abdelrahman, I paid online for the Strength & Fitness Encyclopedia. My order number is: {order}. Please send me my copy.",
       ft_h:"The Strength & Fitness Encyclopedia", ft_p:"The science of strength, fat loss, resilience and courage: military, weights, CrossFit and home training, in one book.",
       ft_1:"Over 200 pages with 49 illustrations: step-by-step exercise figures and science diagrams", ft_2:"17 chapters: hormones and nerves, men and women, muscle biomechanics, tendons and fascia, ancient and modern military training, weights, CrossFit and HIIT, fighter conditioning", ft_3:"Complete home fat-burning workouts with exact timings, sets and reps; 12-week plans for beginner, intermediate and advanced", ft_4:"Training while fasting, hydration, breathing and meditation, massage and recovery, with clear safety rules", ft_5:"Motivation science: how to stay consistent even on the worst days. Available in Arabic or English (PDF)",
@@ -185,7 +185,7 @@
       bk_how_h:"إزاي تستلم نسختك", bk_how:"بعد الدفع هيظهر لك رابط تحميل نسختك هنا فوراً. وتقدر كمان تطلب نسختك على واتساب.",
       bk_terms_p:"نسختك شخصية ولاستخدامك أنت فقط. هذا منتج رقمي: بعد تسليم نسختك لا يمكن استرداد المبلغ. وإذا لم يتم التسليم خلال 24 ساعة من تأكيد الدفع يمكنك طلب الاسترداد. الكتاب يقدم معلومات عامة وليس نصيحة طبية.",
       bk_thx_p:"شكراً لك! بنأكد دفعتك. هيظهر رابط التحميل تحت بعد لحظات.",
-      nav_fitness:"كتاب اللياقة", nav_sim:"المحاكي", nav_coach:"لينك العميل", sim_h:"شوف نفسك بعد التغيير", sim_p:"محاكي جسم مجاني: اكتب طولك ووزنك، ضيف صورتك، اختار هدفك، وشوف رسم توضيحي لشكلك المتوقع. صورتك مش بتتحفظ.", sim_btn:"جرّب المحاكي", title_fitness:"موسوعة اللياقة والقوة | هيلث لايف", plan_fitness:"موسوعة اللياقة والقوة", plan_yearly_daily:"متابعة يومية لمدة سنة", plan_yearly_weekly:"متابعة أسبوعية لمدة سنة",
+      nav_fitness:"كتاب اللياقة", nav_sim:"المحاكي", nav_coach:"لينك العميل", nav_assess:"الفحص الصحي", sim_h:"شوف نفسك بعد التغيير", sim_p:"محاكي جسم مجاني: اكتب طولك ووزنك، ضيف صورتك، اختار هدفك، وشوف رسم توضيحي لشكلك المتوقع. صورتك مش بتتحفظ.", sim_btn:"جرّب المحاكي", hs_h:"الفحص الصحي الشامل", hs_p:"جاوب على استبيانات علمية واحصل على تقرير مفصل: الجسم، الصحة النفسية، صحة الطفل، والشخصية، بمؤشراتك وخطواتك التالية. الأسئلة مجانية والتقرير يبدأ من 4 دولار.", hs_btn:"ابدأ الفحص الصحي", title_fitness:"موسوعة اللياقة والقوة | هيلث لايف", plan_fitness:"موسوعة اللياقة والقوة", plan_yearly_daily:"متابعة يومية لمدة سنة", plan_yearly_weekly:"متابعة أسبوعية لمدة سنة",
       msg_order_fitness:"أهلاً كابتن عبدالرحمن، دفعت أونلاين ثمن موسوعة اللياقة والقوة. رقم طلبي: {order}. من فضلك ابعتلي نسختي.",
       ft_h:"موسوعة اللياقة والقوة", ft_p:"علم القوة وحرق الدهون والصلابة والشجاعة: عسكري وأثقال وكروس فيت وتمارين منزلية في كتاب واحد.",
       ft_1:"أكثر من 200 صفحة مع 49 صورة: رسومات تمارين خطوة بخطوة ورسوم علمية", ft_2:"17 فصلاً: الهرمونات والأعصاب، الرجال والنساء، ميكانيكا العضلة، الأوتار والنسيج الضام، تدريب الحضارات القديمة والجيوش الحديثة، الأثقال، كروس فيت وHIIT، لياقة المقاتل", ft_3:"تمارين منزلية كاملة لحرق الدهون بالتوقيتات والمجموعات والتكرارات، وخطط 12 أسبوعاً للمبتدئ والمتوسط والمتقدم", ft_4:"التمرين أثناء الصيام، الترطيب، التنفس والتأمل، المساج والاستشفاء، مع قواعد أمان واضحة", ft_5:"علم الدافع: إزاي تستمر حتى في أسوأ الأيام. متاح بالعربي أو الإنجليزي (PDF)",
@@ -423,4 +423,52 @@
   if (yr) yr.textContent = new Date().getFullYear();
 
   apply(lang);
+})();
+
+/* ---- local-currency price guide: shows "≈ price in your currency" next to dollar prices (display only) ---- */
+(function () {
+  var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev/";
+  var SUP = ["EGP", "SAR", "AED", "KWD", "QAR", "BHD", "OMR", "JOD", "IQD", "MAD", "DZD", "TND", "LYD", "EUR", "GBP", "CAD", "AUD", "TRY"];
+  var AR = { EGP: "جنيه", SAR: "ريال سعودي", AED: "درهم إماراتي", KWD: "دينار كويتي", QAR: "ريال قطري", BHD: "دينار بحريني", OMR: "ريال عماني", JOD: "دينار أردني", IQD: "دينار عراقي", MAD: "درهم مغربي", DZD: "دينار جزائري", TND: "دينار تونسي", LYD: "دينار ليبي", EUR: "يورو", GBP: "جنيه إسترليني", CAD: "دولار كندي", AUD: "دولار أسترالي", TRY: "ليرة تركية" };
+  var st = { rates: null, auto: "", cur: "" };
+  function lang() { return document.documentElement.lang === "ar" ? "ar" : "en"; }
+  try { st.cur = localStorage.getItem("hl_cur") || ""; } catch (e) {}
+  var DEC = { IQD: 0, KWD: 3, BHD: 3, OMR: 3, JOD: 3, TND: 3, LYD: 3 };
+  function exact(v, c) { if (c === "EGP") return Math.ceil(v); var d = DEC[c] !== undefined ? DEC[c] : 2, f = Math.pow(10, d); return Math.round(v * f) / f; } /* EGP: rounded up to a whole pound, same as the checkout */
+  function active() { var c = st.cur || st.auto; return c === "USD" || !st.rates || !st.rates[c] ? "" : c; }
+  function fmt(usd) {
+    var c = active(); if (!c) return "";
+    var v = exact(usd * st.rates[c], c), l = lang(), d = DEC[c] !== undefined ? DEC[c] : (c === "EGP" ? 0 : 2);
+    return v.toLocaleString(l === "ar" ? "ar-EG" : "en-US", { minimumFractionDigits: d, maximumFractionDigits: d }) + " " + (l === "ar" ? AR[c] : c);
+  }
+  window.HLCur = { local: fmt };
+  function mark() {
+    document.querySelectorAll(".price,.p").forEach(function (el) {
+      var u = el.getAttribute("data-usd");
+      if (!u) { var m = (el.firstChild && el.firstChild.nodeType === 3 ? el.firstChild.nodeValue : el.textContent).trim().match(/^\$\s*([\d.,]+)$/); if (!m) return; u = m[1].replace(/,/g, ""); el.setAttribute("data-usd", u); }
+      var s = el.querySelector(".loc"); if (!s) { s = document.createElement("small"); s.className = "loc"; s.style.cssText = "display:block;font-size:.5em;font-weight:600;opacity:.8;margin-top:2px"; el.appendChild(s); }
+      s.textContent = fmt(Number(u));
+    });
+    var n = document.getElementById("curNote"); if (n) n.textContent = lang() === "ar" ? "السعر بعملتك محسوب بسعر الصرف الحالي (مباشر). الأسعار الأساسية بالدولار، والمبلغ النهائي المحصَّل يظهر في صفحة الدفع الآمنة." : "Your-currency price is converted at today's live exchange rate. Base prices are in US dollars; the final charged amount is shown on the secure payment page.";
+    var lb = document.getElementById("curLbl"); if (lb) lb.textContent = lang() === "ar" ? "العملة:" : "Currency:";
+    var sel = document.getElementById("curSel"); if (sel) { sel.options[0].textContent = lang() === "ar" ? "تلقائي حسب بلدك" : "Auto (your country)"; sel.options[1].textContent = lang() === "ar" ? "دولار فقط" : "US dollar only"; for (var i = 2; i < sel.options.length; i++) { var c = sel.options[i].value; sel.options[i].textContent = c + (lang() === "ar" ? " — " + AR[c] : ""); } }
+    window.dispatchEvent(new Event("hlcur"));
+  }
+  function bar() {
+    if (document.getElementById("curBar")) return;
+    var h = document.querySelector("header"); if (!h) return;
+    var d = document.createElement("div"); d.id = "curBar"; d.style.cssText = "display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:8px 14px;font-size:13px;background:rgba(182,240,0,.06);border-bottom:1px solid var(--line)";
+    var o = '<option value=""></option><option value="USD"></option>' + SUP.map(function (c) { return '<option value="' + c + '"></option>'; }).join("");
+    d.innerHTML = '<label id="curLbl" for="curSel"></label><select id="curSel" style="padding:4px 8px;border-radius:8px;background:var(--card);color:var(--text);border:1px solid var(--line)">' + o + '</select><span id="curNote" style="color:var(--muted);flex:1 1 280px;text-align:center"></span>';
+    h.parentNode.insertBefore(d, h.nextSibling);
+    var sel = d.querySelector("select"); sel.value = st.cur;
+    sel.addEventListener("change", function () { st.cur = sel.value; try { localStorage.setItem("hl_cur", st.cur); } catch (e) {} mark(); });
+  }
+  function init() {
+    fetch(API).then(function (r) { return r.json(); }).then(function (d) {
+      if (!d || !d.rates) return; st.rates = d.rates; st.auto = d.cur || ""; bar(); mark();
+      var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function () { setTimeout(mark, 0); });
+    }).catch(function () {});
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
