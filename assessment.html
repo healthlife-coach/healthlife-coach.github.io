@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الفحص الصحي الشامل | HealthLife</title>
+<meta name="description" content="فحص صحي مبدئي مبني على مقاييس علمية: الجسم، الصحة النفسية، صحة الأطفال، وتحليل الشخصية، مع تقرير مفصل.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<style>
+[hidden]{display:none!important}
+.as{max-width:780px;margin:0 auto;font-family:'Cairo',sans-serif}
+.as h2{margin:0 0 6px;color:var(--lime)}
+.as .priv{display:flex;gap:10px;align-items:flex-start;background:rgba(182,240,0,.08);border:1px solid rgba(182,240,0,.35);border-radius:14px;padding:12px 14px;margin:0 0 18px;font-size:15px}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 18px}
+@media(max-width:600px){.mods{grid-template-columns:1fr}}
+.mod{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);cursor:pointer}
+.mod input{margin-top:6px;width:auto;accent-color:var(--lime)}
+.mod.on{border-color:var(--lime)}
+.mod b{display:block;color:var(--text)}.mod span{color:var(--muted);font-size:14px}
+.gate{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:0 0 16px}
+.gate .field{margin:0 0 14px;width:100%;max-width:none}
+.phone{display:grid;grid-template-columns:130px 1fr;gap:10px;direction:ltr}
+.msg{margin:14px 0;padding:12px 14px;border-radius:12px;background:#4a1d1d;border:1px solid #a33;color:#ffd7d7}
+.prog{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:0 0 8px}.prog i{display:block;height:100%;width:0;background:var(--lime);transition:width .3s}
+#stepNo{color:var(--muted);font-size:14px;margin-bottom:12px}
+.note2{color:var(--muted);margin:0 0 14px}
+.q{margin:0 0 18px}.ql{font-weight:700;margin-bottom:8px}
+.q input[type=number]{width:100%;max-width:320px}
+.opts{display:flex;flex-direction:column;gap:8px}.opts.compact{flex-direction:row;flex-wrap:wrap}
+.opt{display:flex;gap:10px;align-items:center;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer}
+.compact .opt{flex:1;min-width:130px}
+.opt input{width:auto;accent-color:var(--lime)}.opt.on{border-color:var(--lime);color:var(--lime)}
+.alert{position:sticky;top:0;z-index:20;background:#7a1010;border:2px solid #ff5a5a;color:#fff;border-radius:12px;padding:10px 14px;margin:0 0 14px}
+.alert p{margin:4px 0}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#report{margin-top:10px}.rtop h2{font-size:26px}.meta{color:var(--muted)}
+.sums{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:14px 0}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.chip{display:inline-block;padding:4px 12px;border-radius:999px;font-weight:800;font-size:13px;color:#06210f}
+.chip.ok{background:#3fbf4a}.chip.watch{background:#f5c542}.chip.soon{background:#ff9f43}.chip.urgent{background:#ff5a5a;color:#fff}.chip.emergency{background:#b00020;color:#fff}
+.rsec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:16px 0}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}.rh h3{margin:0;color:var(--lime)}
+.rt{width:100%;border-collapse:collapse}.rt td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.rl{width:38%;color:var(--muted)}.rv{font-weight:700}.rs{font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+.tip{background:rgba(182,240,0,.07);border-inline-start:4px solid var(--lime);border-radius:8px;padding:10px 14px;margin:12px 0}.tip.warn{background:rgba(255,159,67,.1);border-color:#ff9f43}
+.alert2{background:#7a1010;border:2px solid #ff5a5a;color:#fff;border-radius:12px;padding:14px;margin:12px 0}.alert2.u{background:#6b3a00;border-color:#ff9f43}
+.rsec ul{padding-inline-start:20px;margin:6px 0}.rsec h4{margin:14px 0 4px}
+.trait{margin:14px 0}.tr1{display:flex;justify-content:space-between}.bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--lime)}
+.refs{margin-top:12px;font-size:13px;color:var(--muted)}.refs ol{direction:ltr;text-align:left}.price{font-size:22px;color:var(--lime)}.pricebox{background:rgba(182,240,0,.08);border:1px solid rgba(182,240,0,.35);border-radius:14px;padding:12px 14px;margin:0 0 16px}.pricebox span{color:var(--muted);font-size:14px}.refs summary{cursor:pointer}
+@media print{header,footer,.noprint,.hero,#intro,#wiz,#lock,#wait{display:none!important}body{background:#fff;color:#000}.rsec,.sc{background:#fff;border-color:#bbb;color:#000}.rh h3,.rtop h2{color:#0b7a55}.rs,.meta,.rl{color:#333}.refs{color:#333}.refs[open],.refs{display:block}.refs ol{display:block}.tip{background:#f3faf7}.alert2{background:#fff;color:#900;border-color:#900}}
+</style>
+</head>
+<body data-page="assess">
+
+<header>
+  <nav>
+    <a class="brand" href="index.html"><img src="logo.png" alt="HealthLife logo" onerror="this.style.display='none'">HEALTHLIFE</a>
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="index.html#packages" data-i18n="nav_packages">Packages</a></li>
+      <li><a href="book.html" data-i18n="nav_book">Recipe Book</a></li>
+      <li><a href="fitness.html" data-i18n="nav_fitness">Fitness Book</a></li>
+      <li><a href="simulator.html" data-i18n="nav_sim">Simulator</a></li>
+      <li><a href="simlink.html" data-i18n="nav_coach">Client Link</a></li>
+      <li><a href="transformations.html" data-i18n="nav_results">Transformations</a></li>
+      <li><a href="payment.html" data-i18n="nav_pay">Payment</a></li>
+      <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <button class="lang" id="langBtn" type="button" aria-label="Change language">العربية</button>
+  </nav>
+</header>
+
+<div class="hero page-hero">
+  <h1 data-u="hero_h"></h1>
+  <p data-u="hero_p"></p>
+</div>
+
+<section>
+  <div class="wrap as" id="as" dir="rtl">
+    <div id="wait" class="gate" hidden><p id="waitMsg"></p></div>
+    <div id="lock" hidden></div>
+
+    <div id="alert" class="alert" hidden></div>
+
+    <div id="intro">
+      <div class="priv"><span>🔒</span><span data-u="priv"></span></div>
+      <div id="paidNote" class="priv" hidden></div>
+      <h2 data-u="pick"></h2>
+      <div class="mods">
+        <label class="mod on"><input type="checkbox" value="body" checked><div><b data-u="m_body"></b><span data-u="m_body_d"></span></div></label>
+        <label class="mod"><input type="checkbox" value="psych"><div><b data-u="m_psych"></b><span data-u="m_psych_d"></span></div></label>
+        <label class="mod"><input type="checkbox" value="child"><div><b data-u="m_child"></b><span data-u="m_child_d"></span></div></label>
+        <label class="mod"><input type="checkbox" value="pers"><div><b data-u="m_pers"></b><span data-u="m_pers_d"></span></div></label>
+      </div>
+
+      <div id="priceLine" class="pricebox"></div>
+
+      <div id="gate" class="gate">
+        <h3 style="margin:0 0 10px;color:var(--lime)" data-u="data"></h3>
+        <div class="field"><label for="gName" data-u="name"></label><input id="gName" type="text" maxlength="60" autocomplete="name"></div>
+        <div class="field"><label for="gPhone" data-u="phone"></label>
+          <div class="phone" id="phoneBox"><select id="gCc"><option value="20">🇪🇬 +20</option><option value="966">🇸🇦 +966</option><option value="971">🇦🇪 +971</option><option value="965">🇰🇼 +965</option><option value="974">🇶🇦 +974</option><option value="973">🇧🇭 +973</option><option value="968">🇴🇲 +968</option><option value="962">🇯🇴 +962</option><option value="961">🇱🇧 +961</option><option value="964">🇮🇶 +964</option><option value="218">🇱🇾 +218</option><option value="249">🇸🇩 +249</option><option value="213">🇩🇿 +213</option><option value="212">🇲🇦 +212</option><option value="216">🇹🇳 +216</option><option value="44">🇬🇧 +44</option><option value="49">🇩🇪 +49</option><option value="1">🇺🇸 +1</option></select>
+          <input id="gPhone" type="tel" inputmode="tel" placeholder="1012345678"></div></div>
+        <div class="field"><label for="gEmail" data-u="email"></label><input id="gEmail" type="email" dir="ltr"></div>
+      </div>
+
+      <label style="display:flex;gap:10px;align-items:flex-start;margin:0 0 16px;cursor:pointer"><input type="checkbox" id="agree" style="margin-top:6px;width:auto"><span data-u="agree"></span></label>
+      <div class="btns"><button class="btn primary" id="start" type="button" data-u="start"></button></div>
+      <div id="gErr" class="msg" hidden></div>
+    </div>
+
+    <div id="wiz" hidden>
+      <div class="prog"><i id="prog"></i></div><div id="stepNo"></div>
+      <div id="stepBody"></div>
+      <div id="err" class="msg" hidden></div>
+      <div class="btns"><button class="btn ghost" id="back" type="button" data-u="back"></button><button class="btn primary" id="next" type="button" data-u="next"></button></div>
+    </div>
+
+    <div id="report" hidden></div>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> HealthLife – Abdelrahman ze coach. <span data-i18n="rights">All rights reserved.</span></footer>
+
+<script src="site.js"></script>
+<script src="assess_core.js?v=2"></script>
+<script src="assess_data.js?v=2"></script>
+<script src="assess_page.js?v=2"></script>
+</body>
+</html>
