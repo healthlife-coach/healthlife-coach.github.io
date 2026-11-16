@@ -163,3 +163,10 @@ footer{text-align:center;padding:28px 20px;color:var(--muted);border-top:1px sol
 .powered{margin-top:8px;font-size:.85rem;opacity:.85}.powered a{color:var(--lime);font-weight:700}
 .field input[type=radio]{width:auto;flex:none;padding:0;margin:0;accent-color:var(--lime,#c6ee0a)}
 .field label.ed{display:flex;gap:10px;align-items:center;margin:6px 0;cursor:pointer;color:var(--text,#fff)}
+
+/* nav: ten links no longer squeeze next to the logo; the menu gets its own centred row on wide screens */
+nav ul li{white-space:nowrap}
+@media (min-width:761px){
+  nav{flex-wrap:wrap;row-gap:6px}
+  nav ul{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:6px 22px;font-size:15px;padding:6px 0 4px;border-top:1px solid rgba(255,255,255,.08)}
+}
