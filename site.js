@@ -17,7 +17,7 @@
       title_pay:"Pay by Bank Transfer | HealthLife",
       /* nav */
       nav_home:"Home", nav_program:"Program", nav_packages:"Packages", nav_results:"Transformations",
-      nav_reviews:"Reviews", nav_pay:"Payment", nav_contact:"Contact",
+      nav_reviews:"Reviews", nav_pay:"Payment", nav_contact:"Contact", nav_about:"About", ab_eyebrow:"About HealthLife", ab_h:"Real coaching, backed by science", ab_p:"HealthLife started in 2018, and since then we have helped more than 5,000 people build better health and fitness. Led by Coach Abdelrahman together with a team of nutrition specialists and fitness instructors, we design a personal nutrition plan and training plan for every client, and follow up step by step until they reach their goal. Our clients come from all around the world.", ab_s1:"Our journey began", ab_s2:"People supported", ab_s3n:"Worldwide", ab_s3:"Clients from many countries", ab_s4:"Real personal follow-up", ab_c1h:"Nutrition", ab_c1p:"Personal meal plans built around your goal, your body and your food preferences, grounded in nutrition science.", ab_c2h:"Training", ab_c2p:"Progressive workout plans matched to your level and where you train, at the gym or at home.", ab_c3h:"Mindset and habits", ab_c3p:"We work on your habits and motivation using approaches from sports psychology and nutrition psychology, so results last.", ab_cred:"Our specialists hold professional certifications in nutrition, fitness training, sports psychology and nutrition psychology.", ab_note:"HealthLife provides coaching and health education. It is not a substitute for medical care.",
       /* home hero */
       hero_p:"Your personalized diet plan and workout plan, with real follow-up from Coach Abdelrahman, so you actually reach your goal.",
       hero_wa:"Chat on WhatsApp", hero_pk:"See Packages",
@@ -115,7 +115,7 @@
       title_results:"التحولات | هيلث لايف",
       title_pay:"الدفع بالتحويل البنكي | هيلث لايف",
       nav_home:"الرئيسية", nav_program:"البرنامج", nav_packages:"الباقات", nav_results:"التحولات",
-      nav_reviews:"آراء العملاء", nav_pay:"الدفع", nav_contact:"تواصل معنا",
+      nav_reviews:"آراء العملاء", nav_pay:"الدفع", nav_contact:"تواصل معنا", nav_about:"من نحن", ab_eyebrow:"عن HealthLife", ab_h:"كوتشنج حقيقي مبني على العلم", ab_p:"بدأت HealthLife في عام 2018، ومن وقتها ساعدنا أكتر من 5,000 شخص على بناء صحة ولياقة أفضل. بقيادة الكابتن عبد الرحمن وفريق من أخصائيي التغذية ومدربي اللياقة، بنصمم لكل عميل نظام غذائي وخطة تمرين تناسبه، ونتابعه خطوة بخطوة لحد ما يوصل لهدفه. وعملاؤنا من مختلف أنحاء العالم.", ab_s1:"بدأت رحلتنا", ab_s2:"شخص ساعدناهم", ab_s3n:"كل العالم", ab_s3:"عملاء من دول كثيرة", ab_s4:"متابعة شخصية حقيقية", ab_c1h:"التغذية", ab_c1p:"أنظمة غذائية مخصصة لهدفك وجسمك وتفضيلاتك، مبنية على أسس علم التغذية.", ab_c2h:"التدريب", ab_c2p:"خطط تمرين متدرجة تناسب مستواك ومكان تدريبك، في الجيم أو البيت.", ab_c3h:"العقلية والعادات", ab_c3p:"بنشتغل على عاداتك وتحفيزك بأساليب من علم النفس الرياضي وعلم نفس التغذية، عشان النتيجة تستمر.", ab_cred:"فريقنا من المتخصصين حاصلون على شهادات مهنية في التغذية، وتدريب اللياقة، وعلم النفس الرياضي، وعلم نفس التغذية.", ab_note:"HealthLife تقدم تدريبًا وتثقيفًا صحيًا، وليست بديلًا عن الرعاية الطبية.",
       hero_p:"نظام غذائي وخطة تمارين مصممة خصيصًا لك، مع متابعة حقيقية من الكابتن عبد الرحمن لتصل إلى هدفك فعلًا.",
       hero_wa:"تواصل عبر واتساب", hero_pk:"شاهد الباقات",
       prog_h:"البرنامج", prog_sub:"كل ما تحتاجه، مصمم حسب جسمك وجدولك.",

@@ -16,7 +16,7 @@
   /* ---------- page texts ---------- */
   var UI = {
     ar: { hero_h: "الفحص الصحي الشامل", hero_p: "فحص مبدئي مبني على مقاييس علمية معتمدة، وتقرير مفصل بمؤشراتك وخطواتك التالية.", priv: "الأسئلة مجانية. التقرير المفصل يتحسب على السيرفر بعد الدفع، وإجاباتك الصحية مبتتخزنش عندنا. بنحفظ بس اسمك ورقم الواتساب عشان نتواصل معاك.", pick: "اختر ما تريد فحصه",
-      m_body: "الصحة العامة والجسم", m_body_d: "مؤشرات الوزن والدهون والضغط وخطر السكري، وسعراتك ومياهك، وتحاليل تسأل عنها طبيبك.", m_psych: "الصحة النفسية (للبالغين)", m_psych_d: "مؤشرات الاكتئاب والقلق والطاقة المرتفعة والتجارب الإدراكية، مع إرشاد للخطوة التالية.", m_child: "صحة الطفل (4–17 سنة)", m_child_d: "يجاوب ولي الأمر: علامات الخطر، سلوك الطفل ومشاعره، ونومه وحركته.", m_pers: "تحليل الشخصية", m_pers_d: "نموذج الخمس عوامل الكبرى (50 سؤال)، وإزاي شخصيتك بتؤثر على التزامك بالأكل والتمرين.",
+      m_body: "الصحة العامة والجسم", m_body_d: "مؤشرات الوزن والدهون والضغط وخطر السكري، وسعراتك ومياهك، وتحاليل تسأل عنها طبيبك.", m_psych: "الصحة النفسية (للبالغين)", m_psych_d: "مؤشرات الاكتئاب والقلق والطاقة المرتفعة والتجارب الإدراكية، مع إرشاد للخطوة التالية.", m_child: "صحة الطفل (4–17 سنة)", m_child_d: "يجاوب ولي الأمر: علامات الخطر، سلوك الطفل ومشاعره، ونومه وحركته.", m_reason: "الاستدلال المنطقي", m_reason_d: "12 سؤال في الأنماط والتشبيه والمنطق والأرقام، وتحليل لنقاط قوتك. تمرين استدلال وليس اختبار ذكاء ولا يعطي رقم IQ.", m_pers: "تحليل الشخصية", m_pers_d: "نموذج الخمس عوامل الكبرى (50 سؤال)، وإزاي شخصيتك بتؤثر على التزامك بالأكل والتمرين.",
       data: "بياناتك", name: "اسمك", phone: "رقم الواتساب (مع كود الدولة)", email: "الإيميل (اختياري)", agree: "أفهم أن هذا فحص مبدئي للتوعية وليس تشخيصًا طبيًا ولا بديلًا عن الطبيب، وأن النتائج تعتمد على صدق إجاباتي. وأوافق أن يتواصل معي الكابتن على الواتساب. (الفحص النفسي للبالغين، وفحص الطفل لأولياء الأمور.)", start: "ابدأ الفحص", back: "السابق", next: "التالي", show: "اعرض النتيجة",
       price1: "وحدة واحدة", priceN: "الفحص الكامل (كل الوحدات)", priceNote: "الأسئلة مجانية، وتدفع فقط لفتح التقرير المفصل.", paidOK: "تم تأكيد دفعك. أجب عن الأسئلة وسيظهر تقريرك مباشرة.",
       errMod: "اختر وحدة واحدة على الأقل.", errAgree: "علّم على الموافقة للمتابعة.", errName: "اكتب اسمك.", errPhone: "اكتب رقم واتساب صحيح (أرقام فقط، وكود الدولة من القائمة).", errOne: "الدفعة دي تغطي وحدة واحدة فقط. اختر الوحدة المدفوعة.",
@@ -24,7 +24,7 @@
       lockH: "تقريرك جاهز ليفتح", lockP: "أجبت عن كل الأسئلة. لفتح التقرير المفصل (المؤشرات، التفسير، الخطوات المقترحة، المراجع، وملف PDF) ادفع مرة واحدة.", pay: "افتح التقرير", paying: "جاري تحويلك للدفع...", payErr: "تعذّر بدء الدفع. حاول مرة أخرى أو كلّمنا على واتساب.", free: "نتيجة مجانية الآن", bmiLine: "مؤشر كتلة جسمك (BMI): ", checking: "جاري تأكيد الدفع...", pending: "لسه الدفع مأكدش. لو دفعت، انتظر دقيقة وأعد تحميل الصفحة.", loading: "جاري تجهيز تقريرك...", repErr: "تعذّر إنشاء التقرير. تواصل معنا على واتساب وذكر رقم طلبك: ", again: "ابدأ فحصًا جديدًا", noAns: "تم تأكيد الدفع. ابدأ الفحص من جديد، وسيفتح تقريرك مباشرة بعد الأسئلة.", limit: "وصلت للحد الأقصى لعدد التقارير على هذا الطلب. تواصل معنا على واتساب.", notCov: "هذه الدفعة لا تغطي الوحدات المختارة.", usd: "دولار", ordRef: "رقم الطلب",
       bodyH: "بياناتك الأساسية", bodyN: "اكتب أرقامًا حقيقية. الدقة بتفرق في النتيجة." },
     en: { hero_h: "Complete Health Screening", hero_p: "An initial screening built on recognised scientific scales, with a detailed report of your indicators and next steps.", priv: "The questions are free. Your detailed report is built on our server after payment, and your health answers are not stored. We only save your name and WhatsApp number so we can contact you.", pick: "Choose what you want screened",
-      m_body: "General health and body", m_body_d: "Weight, body fat, blood pressure and diabetes-risk indicators, your calories and water, and tests to ask your doctor about.", m_psych: "Mental health (adults)", m_psych_d: "Depression, anxiety, elevated energy and unusual-experience indicators, with guidance on the next step.", m_child: "Child health (ages 4-17)", m_child_d: "Answered by a parent: warning signs, behaviour and feelings, sleep and activity.", m_pers: "Personality analysis", m_pers_d: "The Big Five model (50 questions) and how your personality affects sticking to food and training.",
+      m_body: "General health and body", m_body_d: "Weight, body fat, blood pressure and diabetes-risk indicators, your calories and water, and tests to ask your doctor about.", m_psych: "Mental health (adults)", m_psych_d: "Depression, anxiety, elevated energy and unusual-experience indicators, with guidance on the next step.", m_child: "Child health (ages 4-17)", m_child_d: "Answered by a parent: warning signs, behaviour and feelings, sleep and activity.", m_reason: "Logical reasoning", m_reason_d: "12 questions on patterns, analogies, logic and numbers, with an analysis of your strengths. A reasoning exercise, not an IQ test, and it gives no IQ number.", m_pers: "Personality analysis", m_pers_d: "The Big Five model (50 questions) and how your personality affects sticking to food and training.",
       data: "Your details", name: "Your name", phone: "WhatsApp number (with country code)", email: "Email (optional)", agree: "I understand this is an initial screening for awareness, not a medical diagnosis and not a substitute for a doctor, and that results depend on my honest answers. I agree the coach may contact me on WhatsApp. (The mental-health screen is for adults; the child screen is for parents.)", start: "Start the screening", back: "Back", next: "Next", show: "Show my result",
       price1: "Single module", priceN: "Full screening (all modules)", priceNote: "The questions are free; you pay only to unlock the detailed report.", paidOK: "Your payment is confirmed. Answer the questions and your report will appear right away.",
       errMod: "Choose at least one module.", errAgree: "Tick the agreement to continue.", errName: "Enter your name.", errPhone: "Enter a valid WhatsApp number (digits only; pick the country code from the list).", errOne: "This payment covers one module only. Choose the module you paid for.",
@@ -39,7 +39,7 @@
     document.title = lang === "ar" ? "الفحص الصحي الشامل | HealthLife" : "Complete Health Screening | HealthLife";
     showPrices();
   }
-  function money(u) { var l = window.HLCur ? window.HLCur.local(u) : ""; return "$" + u + (l ? " (" + l + ")" : ""); }
+  function money(u) { return "$" + u + (state.rate && lang === "ar" ? " (≈ " + Math.ceil(u * state.rate).toLocaleString("ar-EG") + " جنيه)" : ""); }
   function showPrices() {
     var n = document.querySelectorAll(".mod input:checked").length, p = state.prices;
     var plan = n === 1 ? p.assess_one : p.assess_full;
@@ -116,6 +116,9 @@
     ] });
     S({ id: "ch5", mod: "child", title: X("سؤال أمان", "Safety question"), when: cAge, fields: [{ id: "cself", t: "radio", label: D.childSelf + X("؟", "?"), opts: YN, req: 1 }] });
 
+    [0, 1, 2, 3].forEach(function (p) {
+      S({ id: "re" + p, mod: "reason", title: X("الاستدلال المنطقي (", "Logical reasoning (") + (p + 1) + X(" من 4)", " of 4)"), note: X("اختر الإجابة الأنسب. لا يوجد وقت محدد، لكن حاول ألا تستعين بآلة حاسبة أو بحث.", "Choose the best answer. There is no time limit, but try not to use a calculator or search."), fields: D.reason.slice(p * 3, p * 3 + 3).map(function (it, k) { var i = p * 3 + k; return { id: "rq" + i, t: "radio", label: (i + 1) + ". " + it.q, opts: it.o.map(function (o, v) { return [v, o]; }), req: 1 }; }) });
+    });
     [0, 1, 2, 3, 4].forEach(function (p) {
       S({ id: "pe" + p, mod: "pers", title: X("تحليل الشخصية (", "Personality (") + (p + 1) + X(" من 5)", " of 5)"), note: X("إلى أي درجة تنطبق عليك كل عبارة في حياتك عمومًا؟", "How accurately does each phrase describe you in general? (read each one as: \"I ...\")"), fields: D.big5.slice(p * 10, p * 10 + 10).map(function (t, k) { var i = p * 10 + k; return { id: "b" + i, t: "radio", label: (i + 1) + ". " + t, opts: D.likert5.map(function (o, v) { return [v + 1, o]; }), req: 1, compact: 1 }; }) });
     });
@@ -134,7 +137,7 @@
     }
     return h + "</div>";
   }
-  function buildSteps() { var order = ["body", "psych", "child", "pers"]; makeSteps(); state.steps = STEPS.filter(function (s) { return state.mods.indexOf(s.mod) >= 0; }).sort(function (x, y) { return order.indexOf(x.mod) - order.indexOf(y.mod); }); }
+  function buildSteps() { var order = ["body", "psych", "child", "pers", "reason"]; makeSteps(); state.steps = STEPS.filter(function (s) { return state.mods.indexOf(s.mod) >= 0; }).sort(function (x, y) { return order.indexOf(x.mod) - order.indexOf(y.mod); }); }
   function visibleSteps() { return state.steps.filter(function (s) { return !s.when || s.when(state.a); }); }
   function collect() {
     var s = visibleSteps()[state.i]; if (!s) return;
@@ -256,7 +259,6 @@
   function back() { collect(); if (state.i > 0) { state.i--; renderStep(); } }
   window.AssessDebug = { state: state, alertsFor: alertsFor, visibleSteps: visibleSteps, buildSteps: buildSteps };
 
-  window.addEventListener("hlcur", function () { try { showPrices(); if ($("lock") && !$("lock").hidden) showLock(); } catch (e) {} });
   function setLang(l) { if (l === lang) return; if (!$("wiz").hidden) collect(); lang = l; applyUI(); if (!$("wiz").hidden) { buildSteps(); renderStep(true); } if (!$("lock").hidden) showLock(); }
 
   document.addEventListener("DOMContentLoaded", async function () {

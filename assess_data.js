@@ -145,6 +145,21 @@
 
 
 
+  A.reason = [
+    { q: "أكمل السلسلة: 5، 10، 20، 40، ؟", o: ["60", "80", "50", "45"] },
+    { q: "أكمل السلسلة: 2، 3، 5، 8، 12، ؟", o: ["16", "18", "17", "20"] },
+    { q: "أكمل السلسلة: 3، 6، 5، 10، 9، 18، ؟", o: ["17", "36", "27", "21"] },
+    { q: "الكتاب للقراءة كما أن الشوكة لـ ...؟", o: ["المطبخ", "الأكل", "المعدن", "الطبق"] },
+    { q: "البذرة للشجرة كما أن البيضة لـ ...؟", o: ["العش", "القشرة", "الطائر", "الطعام"] },
+    { q: "أي رقم لا ينتمي للمجموعة: 2، 3، 5، 9، 11؟", o: ["2", "5", "11", "9"] },
+    { q: "كل الطيور لها ريش. البطريق طائر. إذن:", o: ["البطريق يطير", "البطريق له ريش", "البطريق يعيش في البرد فقط", "لا يمكن معرفة ذلك"] },
+    { q: "ليلى أكبر سنًا من هدى. هدى أكبر من سارة. منى أصغر من سارة. من الثانية في الترتيب من الأكبر؟", o: ["سارة", "ليلى", "هدى", "منى"] },
+    { q: "إذا أمطرت السماء يصبح الشارع مبللًا. الشارع مبلل الآن. ماذا نستنتج؟", o: ["أمطرت السماء", "لم تمطر السماء", "الشارع جاف", "لا نستطيع التأكد أنها أمطرت (قد يكون الشارع غُسل مثلًا)"] },
+    { q: "الدفتر بـ 10 جنيه. 3 أقلام ودفتر واحد بـ 25 جنيه. كم سعر القلم الواحد؟", o: ["4", "6", "5", "8"] },
+    { q: "سيارة تقطع 90 كم في ساعة ونصف بسرعة ثابتة. كم تقطع في 4 ساعات؟", o: ["180", "240", "200", "360"] },
+    { q: "شاحن وجراب موبايل ثمنهما معًا 110 جنيه. الجراب أغلى من الشاحن بـ 100 جنيه. كم سعر الشاحن (بالجنيه)؟", o: ["5", "10", "100", "1"] }
+  ];
+
   /* ================= English ================= */
   var E = D.en;
   E.EMERGENCY = { ambulance: "123", mentalHotline: "105", other: "Elsewhere: call your local emergency number (112 in the EU, 999 in the UK, 911 in the US/Canada). US: call or text 988. UK and Ireland: Samaritans 116 123. In Egypt: ambulance 123, psychological support line 105." };
@@ -255,6 +270,21 @@
   ];
   E.likert5 = ["Very inaccurate", "Moderately inaccurate", "Neither", "Moderately accurate", "Very accurate"];
 
+  E.reason = [
+    { q: "Complete the series: 5, 10, 20, 40, ?", o: ["60", "80", "50", "45"] },
+    { q: "Complete the series: 2, 3, 5, 8, 12, ?", o: ["16", "18", "17", "20"] },
+    { q: "Complete the series: 3, 6, 5, 10, 9, 18, ?", o: ["17", "36", "27", "21"] },
+    { q: "Book is to reading as fork is to ...?", o: ["Kitchen", "Eating", "Metal", "Plate"] },
+    { q: "Seed is to tree as egg is to ...?", o: ["Nest", "Shell", "Bird", "Food"] },
+    { q: "Which number does not belong: 2, 3, 5, 9, 11?", o: ["2", "5", "11", "9"] },
+    { q: "All birds have feathers. A penguin is a bird. Therefore:", o: ["Penguins can fly", "Penguins have feathers", "Penguins live only in the cold", "We cannot know"] },
+    { q: "Layla is older than Huda. Huda is older than Sara. Mona is younger than Sara. Who is second oldest?", o: ["Sara", "Layla", "Huda", "Mona"] },
+    { q: "If it rains, the street gets wet. The street is wet now. What can we conclude?", o: ["It rained", "It did not rain", "The street is dry", "We cannot be sure it rained (the street may have been washed, for example)"] },
+    { q: "A notebook costs 10 EGP. 3 pens and 1 notebook cost 25 EGP. How much is one pen?", o: ["4", "6", "5", "8"] },
+    { q: "A car travels 90 km in 1.5 hours at a steady speed. How far does it go in 4 hours?", o: ["180", "240", "200", "360"] },
+    { q: "A charger and a phone case cost 110 EGP together. The case costs 100 EGP more than the charger. How much is the charger (in EGP)?", o: ["5", "10", "100", "1"] }
+  ];
+
   /* ---------- references ---------- */
   D.refs = {
     body: [
@@ -290,6 +320,11 @@
   };
 
 
+  D.refs.reason = [
+    "Neisser U, et al. Intelligence: Knowns and unknowns. American Psychologist 1996;51(2):77-101.",
+    "Deary IJ. Intelligence. Annual Review of Psychology 2012;63:453-482.",
+    "Frederick S. Cognitive reflection and decision making. Journal of Economic Perspectives 2005;19(4):25-42. (The last item follows the style of the cognitive reflection test.)"
+  ];
   root.AD = D;
   if (typeof module !== "undefined" && module.exports) module.exports = D;
 })(typeof window !== "undefined" ? window : globalThis);
