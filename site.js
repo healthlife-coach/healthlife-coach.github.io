@@ -106,6 +106,13 @@
       ft_thx_p:"Thank you! We are confirming your payment. Your download link will appear below in a moment.",
       ed_l:"Choose your edition", ed_ar:"Arabic edition", ed_en:"English edition",
       dl_wait:"Confirming your payment… this usually takes a few seconds.", dl_btn:"Download your book (PDF)", dl_ready:"Payment confirmed. Your download is ready.", dl_note:"The link works for 72 hours and you can re-open this page any time (for 30 days) to get a new link. Please keep your copy private.", dl_fail:"The payment was not completed. You have not been charged. You can try again.", dl_review:"We received your payment and are checking it. Please message us on WhatsApp with your order number and we will send your copy.", dl_slow:"Still confirming. You can wait here, or tap the button below to ask for your copy on WhatsApp.", dl_ask:"Ask for my copy on WhatsApp",
+      nav_glow:"Natures Glow", title_glow:"Nature's Glow Encyclopedia | HealthLife", plan_glow:"Nature's Glow Encyclopedia",
+      msg_order_glow:"Hello Coach Abdelrahman, I paid online for the Nature's Glow Encyclopedia. My order number is: {order}. Please send me my copy.",
+      gl_h:"Nature's Glow", gl_p:"The HealthLife encyclopedia of natural beauty, skin and calm: exact recipes in grams, face and fascia exercises, breathing, meditation, scents and herbs.",
+      gl_1:"12 parts and 9 appendices: skin science, ingredients, safety, preservation, 16 recipes by percentage, and answers for common skin concerns", gl_2:"Face yoga with 12 movements, each linked to fascia massage and scalp care, plus a 10-minute daily sequence", gl_3:"Breathing and meditation practices with clear safety rules, and scents and herbs for relaxation", gl_4:"Beauty rituals from Egypt, Greece and Rome, India, East Asia, the Middle East and Africa, separating proven benefit from myth", gl_5:"A 28-day programme and a seasonal guide, with every claim graded by strength of evidence. About 49 pages in English or 46 in Arabic (PDF). The two editions are separate books",
+      gl_how:"After payment your personal download link appears right here, instantly. You can also ask for your copy on WhatsApp.",
+      gl_terms_p:"This is a digital product for your personal use only; sharing or reselling it is not allowed. Once the download link has been issued the amount is non-refundable. If you cannot download your copy, contact us and we will send it or refund you. The book is an educational reference and not medical advice. Patch-test every recipe before use and see a doctor for any skin or health condition.",
+      gl_thx_p:"Thank you! We are confirming your payment. Your download link will appear below in a moment.",
       egp_now:"About {egp} EGP today",
       btn:"العربية"
     },
@@ -194,12 +201,19 @@
       ft_thx_p:"شكراً لك! بنأكد دفعتك. هيظهر رابط التحميل تحت بعد لحظات.",
       ed_l:"اختر النسخة", ed_ar:"النسخة العربية", ed_en:"النسخة الإنجليزية",
       dl_wait:"جاري تأكيد الدفع… بياخد ثواني عادةً.", dl_btn:"حمّل كتابك (PDF)", dl_ready:"تم تأكيد الدفع. التحميل جاهز.", dl_note:"الرابط يعمل 72 ساعة، وتقدر تفتح الصفحة دي في أي وقت (لمدة 30 يوماً) للحصول على رابط جديد. من فضلك حافظ على خصوصية نسختك.", dl_fail:"لم تكتمل عملية الدفع ولم يتم خصم أي مبلغ. تقدر تحاول مرة أخرى.", dl_review:"استلمنا دفعتك وبنراجعها. ابعتلنا رقم الطلب على واتساب وهنبعتلك نسختك.", dl_slow:"لسه بنأكد. تقدر تنتظر هنا أو تضغط الزر تحت وتطلب نسختك على واتساب.", dl_ask:"اطلب نسختي على واتساب",
+      nav_glow:"نور الطبيعة", title_glow:"موسوعة نور الطبيعة | هيلث لايف", plan_glow:"موسوعة نور الطبيعة",
+      msg_order_glow:"أهلاً كابتن عبدالرحمن، دفعت أونلاين ثمن موسوعة نور الطبيعة. رقم طلبي: {order}. من فضلك ابعتلي نسختي.",
+      gl_h:"نور الطبيعة", gl_p:"موسوعة هيلث لايف للجمال الطبيعي والبشرة والسكينة: وصفات بالجرام، تمارين الوجه والفاشيا، تنفس وتأمل، عطور وأعشاب.",
+      gl_1:"12 بابًا و9 ملاحق: علم البشرة، المكونات، السلامة، الحفظ، 16 وصفة بالنسب المئوية، وحلول لمشاكل البشرة الشائعة", gl_2:"يوغا الوجه في 12 حركة، كل حركة مرتبطة بمساج الفاشيا وفروة الرأس، مع تسلسل يومي لمدة 10 دقائق", gl_3:"تمارين تنفس وتأمل بقواعد أمان واضحة، وعطور وأعشاب للاسترخاء", gl_4:"طقوس الجمال في مصر واليونان وروما والهند وشرق آسيا والشرق الأوسط وأفريقيا، مع التفريق بين الفائدة المثبتة والخرافة", gl_5:"برنامج 28 يومًا ودليل المواسم، وكل معلومة مصنفة حسب قوة الدليل. حوالي 46 صفحة بالعربي أو 49 بالإنجليزي (PDF). النسختان كتابان منفصلان",
+      gl_how:"بعد الدفع هيظهر لك رابط تحميل نسختك هنا فوراً. وتقدر كمان تطلب نسختك على واتساب.",
+      gl_terms_p:"هذا منتج رقمي لاستخدامك الشخصي فقط، ولا يُسمح بمشاركته أو إعادة بيعه. بعد إصدار رابط التحميل لا يمكن استرداد المبلغ. وإذا لم تستطع تحميل نسختك تواصل معنا وسنرسلها لك أو نرد المبلغ. الكتاب مرجع تعليمي وليس نصيحة طبية. جرّب أي وصفة على بقعة صغيرة من الجلد قبل الاستخدام، واستشر طبيباً عند وجود أي مشكلة جلدية أو صحية.",
+      gl_thx_p:"شكراً لك! بنأكد دفعتك. هيظهر رابط التحميل تحت بعد لحظات.",
       egp_now:"حوالي {egp} جنيه بسعر اليوم",
       btn:"English"
     }
   };
 
-  var PLANS = { daily:{amount:"$250", key:"plan_daily"}, weekly:{amount:"$100", key:"plan_weekly"}, book:{amount:"$4.99", key:"plan_book"}, fitness:{amount:"$10", key:"plan_fitness"}, yearly_daily:{amount:"$1000", key:"plan_yearly_daily"}, yearly_weekly:{amount:"$400", key:"plan_yearly_weekly"} };
+  var PLANS = { daily:{amount:"$250", key:"plan_daily"}, weekly:{amount:"$100", key:"plan_weekly"}, book:{amount:"$4.99", key:"plan_book"}, fitness:{amount:"$10", key:"plan_fitness"}, glow:{amount:"$6.99", key:"plan_glow"}, yearly_daily:{amount:"$1000", key:"plan_yearly_daily"}, yearly_weekly:{amount:"$400", key:"plan_yearly_weekly"} };
   var page = document.body.getAttribute("data-page") || "home";
   var lang = "en";
   var plan = document.body.getAttribute("data-plan") || "daily";
@@ -246,7 +260,7 @@
     document.querySelectorAll("[data-wa]").forEach(function(a){
       var kind = a.getAttribute("data-wa");
       if (kind === "paid") a.href = paidLink();
-      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent((page === "book" ? d.msg_order_book : page === "fitness" ? d.msg_order_fitness : d.msg_order).replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
+      else if (kind === "order") a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent((page === "book" ? d.msg_order_book : page === "fitness" ? d.msg_order_fitness : page === "glow" ? d.msg_order_glow : d.msg_order).replace("{order}", (typeof orderId !== "undefined" ? orderId : "")));
       else a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(d["msg_" + kind]);
     });
     document.querySelectorAll("img[data-src-en]").forEach(function(im){ im.src = im.getAttribute("data-src-" + l); });
