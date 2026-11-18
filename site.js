@@ -568,3 +568,20 @@
     document.head.appendChild(st);
   } catch (e) {}
 })();
+
+/* ---- phone menu: a burger button that opens/closes the links ---- */
+(function () {
+  function init() {
+    try {
+      var nav = document.querySelector("header nav"), ul = nav && nav.querySelector("ul");
+      if (!ul || nav.querySelector(".hl-burger")) return;
+      var st = document.createElement("style");
+      st.textContent = ".hl-burger{display:none;background:transparent;border:1px solid var(--line,#2c4a3a);color:inherit;border-radius:10px;font-size:22px;line-height:1;padding:6px 12px;cursor:pointer}@media(max-width:820px){.hl-burger{display:inline-block}header nav{flex-wrap:wrap}header nav ul{display:none!important;width:100%;flex-direction:column;align-items:stretch;max-height:none!important;overflow:visible!important;gap:0!important;padding:6px 0!important;order:5}header nav ul.hl-open{display:flex!important}header nav ul li a{display:block;padding:11px 8px;font-size:16px!important;border-bottom:1px solid var(--line,#2c4a3a);text-align:start}}";
+      document.head.appendChild(st);
+      var b = document.createElement("button"); b.type = "button"; b.className = "hl-burger"; b.textContent = "☰"; b.setAttribute("aria-label", "Menu");
+      var lang = nav.querySelector("#langBtn"); if (lang) nav.insertBefore(b, lang); else nav.appendChild(b);
+      b.addEventListener("click", function () { var o = ul.classList.toggle("hl-open"); b.textContent = o ? "✕" : "☰"; });
+    } catch (e) {}
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
