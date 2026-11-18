@@ -486,3 +486,48 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
+
+/* ---- website assistant widget (talks to the Worker /chat; answers from HealthLife facts only) ---- */
+(function () {
+  var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev/chat";
+  var TX = {
+    en: { t: "Ask HealthLife", ph: "Type your question…", send: "Send", hi: "Hi! I am the HealthLife assistant. Ask me about the packages, prices, books or how to pay.", note: "Automated assistant, it can make mistakes. Not medical advice. Coach Abdelrahman is the final word.", wait: "Typing…", err: "Could not reach the assistant. Please message us on WhatsApp.", open: "Open chat", close: "Close" },
+    ar: { t: "اسأل هيلث لايف", ph: "اكتب سؤالك…", send: "إرسال", hi: "أهلاً! أنا مساعد هيلث لايف. اسألني عن الباقات والأسعار والكتب وطرق الدفع.", note: "مساعد آلي وممكن يغلط. مش نصيحة طبية. كلمة الكابتن عبد الرحمن هي النهائية.", wait: "بكتب…", err: "مقدرتش أوصل للمساعد. ابعتلنا على واتساب.", open: "افتح الشات", close: "إغلاق" }
+  };
+  function L() { return document.documentElement.lang === "ar" ? "ar" : "en"; }
+  var hist = [], busy = false;
+  function el(tag, css, txt) { var e = document.createElement(tag); if (css) e.style.cssText = css; if (txt !== undefined) e.textContent = txt; return e; }
+  function init() {
+    if (document.getElementById("hlChat")) return;
+    var root = el("div", "position:fixed;bottom:18px;left:18px;z-index:9998;font-family:inherit"); root.id = "hlChat";
+    var btn = el("button", "width:56px;height:56px;border-radius:50%;border:0;cursor:pointer;background:var(--lime,#b6f000);color:#0b2a1c;font-size:26px;box-shadow:0 6px 18px rgba(0,0,0,.35)", "💬"); btn.type = "button";
+    var box = el("div", "display:none;position:absolute;bottom:68px;left:0;width:min(340px,calc(100vw - 36px));height:min(460px,70vh);flex-direction:column;background:var(--card,#10281c);color:var(--text,#f4f1e6);border:1px solid var(--line,#2c4a3a);border-radius:16px;box-shadow:0 12px 34px rgba(0,0,0,.45);overflow:hidden");
+    var head = el("div", "display:flex;align-items:center;justify-content:space-between;padding:10px 14px;font-weight:700;border-bottom:1px solid var(--line,#2c4a3a)");
+    var title = el("span"); var x = el("button", "background:none;border:0;color:inherit;font-size:20px;cursor:pointer", "×"); x.type = "button";
+    head.appendChild(title); head.appendChild(x);
+    var log = el("div", "flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.6");
+    var note = el("div", "padding:6px 12px;font-size:11px;color:var(--muted,#b9c2b5);border-top:1px solid var(--line,#2c4a3a)");
+    var form = el("form", "display:flex;gap:6px;padding:8px;border-top:1px solid var(--line,#2c4a3a)");
+    var inp = el("input", "flex:1;min-width:0;padding:9px 10px;border-radius:10px;border:1px solid var(--line,#2c4a3a);background:transparent;color:inherit;font:inherit"); inp.type = "text"; inp.maxLength = 500; inp.autocomplete = "off";
+    var go = el("button", "padding:9px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700;background:var(--lime,#b6f000);color:#0b2a1c"); go.type = "submit";
+    form.appendChild(inp); form.appendChild(go);
+    box.appendChild(head); box.appendChild(log); box.appendChild(note); box.appendChild(form);
+    root.appendChild(box); root.appendChild(btn); document.body.appendChild(root);
+    function bub(t, me) { var b = el("div", "max-width:88%;padding:8px 11px;border-radius:12px;white-space:pre-wrap;word-break:break-word;" + (me ? "align-self:flex-end;background:rgba(182,240,0,.18)" : "align-self:flex-start;background:rgba(255,255,255,.07)"), t); log.appendChild(b); log.scrollTop = log.scrollHeight; return b; }
+    function labels() { var d = TX[L()]; title.textContent = d.t; inp.placeholder = d.ph; go.textContent = d.send; note.textContent = d.note; btn.setAttribute("aria-label", d.open); x.setAttribute("aria-label", d.close); box.dir = L() === "ar" ? "rtl" : "ltr"; }
+    labels(); var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function () { setTimeout(labels, 0); });
+    var greeted = false;
+    btn.addEventListener("click", function () { box.style.display = box.style.display === "flex" ? "none" : "flex"; if (box.style.display === "flex") { if (!greeted) { greeted = true; bub(TX[L()].hi, false); } inp.focus(); } });
+    x.addEventListener("click", function () { box.style.display = "none"; });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); var q = inp.value.trim(); if (!q || busy) return;
+      busy = true; inp.value = ""; bub(q, true); hist.push({ role: "user", content: q }); var w = bub(TX[L()].wait, false);
+      fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ lang: L(), messages: hist.slice(-8) }) })
+        .then(function (r) { return r.json(); })
+        .then(function (d) { var t = d && d.reply ? d.reply : TX[L()].err; w.textContent = t; hist.push({ role: "assistant", content: t }); })
+        .catch(function () { w.textContent = TX[L()].err; hist.pop(); })
+        .then(function () { busy = false; log.scrollTop = log.scrollHeight; });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
