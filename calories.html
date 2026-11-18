@@ -88,6 +88,7 @@
 
   <div class="box" id="scan">
     <input type="file" id="file" accept="image/*" capture="environment" hidden>
+    <input type="text" id="hint" maxlength="100" data-en-ph="Optional: weight or description (e.g. pudding cup 150 g)" data-ar-ph="اختياري: الوزن أو وصف (مثلاً: علبة بودينج 150 جرام)">
     <button class="big" id="pick" type="button" data-en="📷 Take a photo of your meal" data-ar="📷 صوّر وجبتك">📷 Take a photo of your meal</button>
     <p class="st" id="msg"></p>
     <button class="ghost" id="codeBtn2" type="button" data-en="I have an access code" data-ar="معايا كود تفعيل">I have an access code</button>
@@ -116,7 +117,7 @@
 
 <footer>© <span id="yr"></span> HealthLife – Abdelrahman ze coach.</footer>
 
-<script src="site.js?v=8"></script>
+<script src="site.js?v=9"></script>
 <script>
 (function () {
   var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev";
@@ -153,12 +154,19 @@
   }
   function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
   function show(j, url) {
-    var t = T(), h = '<div class="tot">' + j.total.kcal + " " + t.kcal + "</div>";
-    h += '<div class="mac"><div><b>' + j.total.protein + " " + t.g + "</b>" + t.p + "</div><div><b>" + j.total.carbs + " " + t.g + "</b>" + t.c + "</div><div><b>" + j.total.fat + " " + t.g + "</b>" + t.f + "</div></div>";
+    var t = T(), items = j.items.map(function (i) { return { name: i.name, g0: i.grams || 1, g: i.grams, k0: i.kcal, p0: i.protein, c0: i.carbs, f0: i.fat }; });
+    var h = '<div class="tot" id="tK"></div><div class="mac"><div><b id="tP"></b>' + t.p + '</div><div><b id="tC"></b>' + t.c + '</div><div><b id="tF"></b>' + t.f + "</div></div>";
     h += "<table><tr><th>" + t.item + "</th><th>" + t.g + "</th><th>" + t.kcal + "</th></tr>";
-    j.items.forEach(function (i) { h += "<tr><td>" + esc(i.name) + "</td><td>" + i.grams + "</td><td>" + i.kcal + "</td></tr>"; });
-    h += '</table><button class="ghost" id="again" type="button">' + t.again + "</button>";
+    items.forEach(function (i, n) { h += "<tr><td>" + esc(i.name) + '</td><td><input type="number" min="1" max="3000" value="' + i.g + '" data-n="' + n + '" style="width:70px;padding:4px;border-radius:8px;border:1px solid var(--line);background:transparent;color:inherit;font:inherit"></td><td id="k' + n + '"></td></tr>'; });
+    h += '</table><p class="fine">' + (L() === "ar" ? "تقدر تعدّل الجرامات لو عارف الوزن الحقيقي، والحساب بيتغير." : "You can edit the grams if you know the real weight; totals update.") + '</p><button class="ghost" id="again" type="button">' + t.again + "</button>";
     $("resBody").innerHTML = h; $("pv").src = url; $("res").hidden = false;
+    function calc() {
+      var K = 0, P = 0, C = 0, F = 0;
+      items.forEach(function (i, n) { var r = i.g / i.g0, k = Math.round(i.k0 * r); K += k; P += i.p0 * r; C += i.c0 * r; F += i.f0 * r; $("k" + n).textContent = k; });
+      $("tK").textContent = K + " " + t.kcal; $("tP").textContent = Math.round(P) + " " + t.g; $("tC").textContent = Math.round(C) + " " + t.g; $("tF").textContent = Math.round(F) + " " + t.g;
+    }
+    $("resBody").querySelectorAll("input[data-n]").forEach(function (e) { e.oninput = function () { var v = Number(e.value); if (v > 0 && v <= 3000) { items[Number(e.dataset.n)].g = v; calc(); } }; });
+    calc();
     $("again").onclick = function () { $("res").hidden = true; $("msg").textContent = ""; $("scan").hidden = false; draw(); };
   }
   $("pick").onclick = function () { $("file").click(); };
@@ -167,7 +175,7 @@
     $("pick").disabled = true; $("res").hidden = true; $("msg").textContent = t.wait;
     shrink(f, function (url) {
       if (!url) { $("pick").disabled = false; $("msg").textContent = t.bad; return; }
-      post("/cal/analyze", { image: url, lang: L() }).then(function (j) {
+      post("/cal/analyze", { image: url, lang: L(), hint: $("hint").value }).then(function (j) {
         $("pick").disabled = false; $("msg").textContent = "";
         if (j.free_left !== undefined) { S = { free_left: j.free_left, pass_until: j.pass_until, owner: j.owner }; }
         if (j.ok && j.food) { show(j, url); draw(); $("scan").hidden = false; }
