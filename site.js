@@ -547,3 +547,12 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", add); else add();
 })();
+
+/* ---- keep the whole menu tidy even with many links ---- */
+(function () {
+  try {
+    var st = document.createElement("style");
+    st.textContent = "header nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;padding:0;margin-left:auto;margin-right:auto}header nav ul li{margin:0}header nav ul li a{font-size:14.5px;white-space:nowrap}@media(min-width:1100px){header nav ul{gap:6px 14px}header nav ul li a{font-size:14px}}";
+    document.head.appendChild(st);
+  } catch (e) {}
+})();

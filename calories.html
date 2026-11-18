@@ -90,6 +90,8 @@
     <input type="file" id="file" accept="image/*" capture="environment" hidden>
     <button class="big" id="pick" type="button" data-en="📷 Take a photo of your meal" data-ar="📷 صوّر وجبتك">📷 Take a photo of your meal</button>
     <p class="st" id="msg"></p>
+    <button class="ghost" id="codeBtn2" type="button" data-en="I have an access code" data-ar="معايا كود تفعيل">I have an access code</button>
+    <div id="codeBox2" hidden><input type="text" id="code2" placeholder="HL-calpass-..." dir="ltr"><button class="big" id="codeGo2" type="button" data-en="Activate" data-ar="فعّل">Activate</button></div>
   </div>
 
   <div class="box" id="res" hidden>
@@ -114,7 +116,7 @@
 
 <footer>© <span id="yr"></span> HealthLife – Abdelrahman ze coach.</footer>
 
-<script src="site.js?v=7"></script>
+<script src="site.js?v=8"></script>
 <script>
 (function () {
   var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev";
@@ -192,6 +194,8 @@
       if (j.pass_until) { S = j; $("pay").hidden = true; $("scan").hidden = false; $("msg").textContent = t.act; draw(); return true; }
       $("payMsg").textContent = j.error === "not_paid" ? t.unpaid : t.codebad; return false; });
   }
+  $("codeBtn2").onclick = function () { $("codeBox2").hidden = !$("codeBox2").hidden; };
+  $("codeGo2").onclick = function () { var c = $("code2").value.trim(); if (c) redeem(c).then(function (ok) { if (!ok) $("msg").textContent = T().codebad; else $("codeBox2").hidden = true; }); };
   $("codeGo").onclick = function () { var c = $("code").value.trim(); if (c) redeem(c); };
   var q = new URLSearchParams(location.search);
   if (q.get("status") === "done" && q.get("order")) { $("pay").hidden = false; var tries = 0; (function go() { redeem(q.get("order")).then(function (ok) { if (!ok && tries++ < 8) setTimeout(go, 4000); }); })(); }
