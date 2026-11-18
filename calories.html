@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meal Calorie Scanner | HealthLife</title>
+<meta name="description" content="Take a photo of your meal and get an estimated calorie and macro report.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<style id="pm-inline">
+/* payment methods */
+.pm{max-width:760px;margin:0 auto}
+.pm-group{margin-bottom:26px}
+.pm-label{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:12px}
+.pm-label .dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
+.pm-label.soon .dot{background:#f5c542}
+.pm-row{display:flex;flex-wrap:wrap;gap:10px}
+.pm-pill{padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:600}
+.pm-pill.on{border-color:var(--lime);color:var(--lime)}
+.pm-pill.off{opacity:.75;border-style:dashed;color:var(--muted)}
+.pm-note{color:var(--muted);font-size:14px;margin-top:10px}
+
+.pm-logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px}
+.pm-item{margin:0;text-align:center}
+.pm-logo{display:flex;align-items:center;justify-content:center;height:84px;border-radius:14px;padding:12px 16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.pm-logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.pm-item figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
+.bk{display:grid;grid-template-columns:260px 1fr;gap:34px;align-items:start}
+.bk img.cover{width:100%;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.bk .price{font-size:40px;font-weight:800;color:var(--lime);margin:6px 0 14px}
+@media(max-width:700px){.bk{grid-template-columns:1fr}.bk img.cover{max-width:240px;margin:0 auto;display:block}}
+</style>
+<style>[hidden]{display:none!important}</style>
+</head>
+<body data-page="calories">
+
+<header>
+  <nav>
+    <a class="brand" href="index.html"><img src="logo.png" alt="HealthLife logo" onerror="this.style.display='none'">HEALTHLIFE</a>
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
+      <li><a href="index.html#packages" data-i18n="nav_packages">Packages</a></li>
+      <li><a href="book.html" data-i18n="nav_book">Recipe Book</a></li>
+      <li><a href="fitness.html" data-i18n="nav_fitness">Fitness Book</a></li>
+      <li><a href="glow.html" data-i18n="nav_glow">Natures Glow</a></li>
+      <li><a href="calories.html" class="active" data-en="Calorie Scanner" data-ar="ماسح السعرات">Calorie Scanner</a></li>
+      <li><a href="simulator.html" data-i18n="nav_sim">Simulator</a></li>
+      <li><a href="simlink.html" data-i18n="nav_coach">Client Link</a></li>
+      <li><a href="assessment.html" data-i18n="nav_assess">Health Check</a></li>
+      <li><a href="transformations.html" data-i18n="nav_results">Transformations</a></li>
+      <li><a href="payment.html" data-i18n="nav_pay">Payment</a></li>
+      <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <button class="lang" id="langBtn" type="button" aria-label="Change language">العربية</button>
+  </nav>
+</header>
+
+<style>
+.cs{max-width:640px;margin:0 auto;padding:28px 16px 60px}
+.cs h1{font-size:30px;margin:0 0 8px}
+.cs .lead{color:var(--muted);margin:0 0 20px}
+.cs .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+.cs .big{display:block;width:100%;padding:16px;border-radius:14px;border:0;background:var(--lime);color:#0b2a1c;font:inherit;font-weight:800;font-size:18px;cursor:pointer;text-align:center}
+.cs .big[disabled]{opacity:.5;cursor:default}
+.cs .ghost{display:block;width:100%;margin-top:10px;padding:12px;border-radius:12px;border:1px solid var(--line);background:transparent;color:inherit;font:inherit;cursor:pointer}
+.cs input[type=text],.cs input[type=tel]{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:transparent;color:inherit;font:inherit;margin:6px 0}
+.cs .st{color:var(--muted);font-size:14px;margin:10px 0 0;text-align:center}
+.cs img.pv{width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:12px}
+.cs table{width:100%;border-collapse:collapse;font-size:14px}
+.cs td,.cs th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:start}
+.cs .tot{font-size:34px;font-weight:800;color:var(--lime);margin:4px 0}
+.cs .mac{display:flex;gap:8px;margin:10px 0}
+.cs .mac div{flex:1;text-align:center;background:rgba(255,255,255,.06);border-radius:10px;padding:8px 4px;font-size:13px}
+.cs .mac b{display:block;font-size:18px}
+.cs .fine{font-size:12px;color:var(--muted);margin-top:10px}
+.cs .err{color:#ffb4a8}
+.cs[hidden],.cs [hidden]{display:none!important}
+</style>
+
+<main class="cs">
+  <h1 data-en="Meal Calorie Scanner" data-ar="ماسح سعرات الوجبة">Meal Calorie Scanner</h1>
+  <p class="lead" data-en="Take a photo of your meal and get an estimated report: calories, protein, carbs and fat." data-ar="صوّر وجبتك واحصل على تقرير تقريبي: السعرات والبروتين والكارب والدهون.">Take a photo of your meal and get an estimated report: calories, protein, carbs and fat.</p>
+
+  <div class="box" id="stBox"><div id="stTxt"></div></div>
+
+  <div class="box" id="scan">
+    <input type="file" id="file" accept="image/*" capture="environment" hidden>
+    <button class="big" id="pick" type="button" data-en="📷 Take a photo of your meal" data-ar="📷 صوّر وجبتك">📷 Take a photo of your meal</button>
+    <p class="st" id="msg"></p>
+  </div>
+
+  <div class="box" id="res" hidden>
+    <img class="pv" id="pv" alt="">
+    <div id="resBody"></div>
+    <p class="fine" data-en="This is an approximate AI estimate, not an exact measurement and not medical advice. Portions in the photo are hard to judge." data-ar="ده تقدير تقريبي بالذكاء الاصطناعي، مش قياس دقيق ومش نصيحة طبية. حجم الوجبة في الصورة صعب يتحدد بدقة.">This is an approximate AI estimate, not an exact measurement and not medical advice. Portions in the photo are hard to judge.</p>
+  </div>
+
+  <div class="box" id="pay" hidden>
+    <h2 style="margin-top:0" data-en="Your free tries are finished" data-ar="التجارب المجانية خلصت">Your free tries are finished</h2>
+    <p data-en="Unlock the scanner for 30 days for $3. Renew any time, new days are added on top." data-ar="افتح الماسح لمدة 30 يوم بـ 3$. تقدر تجدد في أي وقت والأيام الجديدة بتتضاف فوق المتبقي.">Unlock the scanner for 30 days for $3.</p>
+    <input type="text" id="pn" autocomplete="name" data-en-ph="Your name" data-ar-ph="اسمك">
+    <input type="tel" id="pp" autocomplete="tel" data-en-ph="WhatsApp number" data-ar-ph="رقم الواتساب">
+    <button class="big" id="payBtn" type="button" data-en="Pay $3 and unlock 30 days" data-ar="ادفع 3$ وافتح 30 يوم">Pay $3 and unlock 30 days</button>
+    <p class="st" id="payMsg"></p>
+    <button class="ghost" id="codeBtn" type="button" data-en="I have an access code" data-ar="معايا كود تفعيل">I have an access code</button>
+    <div id="codeBox" hidden><input type="text" id="code" placeholder="HL-calpass-..." dir="ltr"><button class="big" id="codeGo" type="button" data-en="Activate" data-ar="فعّل">Activate</button></div>
+  </div>
+
+  <p class="fine" style="text-align:center" data-en="Coaching package clients get this free: ask Coach Abdelrahman on WhatsApp." data-ar="عملاء باقات المتابعة بياخدوها مجاناً: اسأل الكابتن عبد الرحمن على واتساب.">Coaching package clients get this free: ask Coach Abdelrahman on WhatsApp.</p>
+</main>
+
+<footer>© <span id="yr"></span> HealthLife – Abdelrahman ze coach.</footer>
+
+<script src="site.js?v=6"></script>
+<script>
+(function () {
+  var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev";
+  var $ = function (i) { return document.getElementById(i); };
+  var M = {
+    en: { free: function (n) { return "Free tries left: " + n; }, pass: function (d) { return "Pass active: " + d + " days left"; }, none: "No free tries left", wait: "Analysing your meal… this takes a few seconds", bad: "Could not read that photo, try another one.", nofood: "I could not see food in this photo. Try again with the meal in the frame.", busy: "The scanner is very busy right now. Please try again later today or tomorrow.", day: "You reached today's limit. Try again tomorrow.", fail: "Something went wrong. Please try again.", net: "No connection. Please try again.", item: "Item", g: "g", kcal: "kcal", total: "Total calories", p: "Protein", c: "Carbs", f: "Fat", again: "Scan another meal", needd: "Please enter your name and WhatsApp number.", paying: "Opening the secure payment page…", pe: "Could not start the payment. Please try again.", act: "Activated! Your pass is active.", codebad: "This code is not valid or was already used on another device.", unpaid: "Payment not confirmed yet. If you paid, wait a minute and refresh." },
+    ar: { free: function (n) { return "التجارب المجانية المتبقية: " + n; }, pass: function (d) { return "الاشتراك شغال: فاضل " + d + " يوم"; }, none: "التجارب المجانية خلصت", wait: "بحلل وجبتك… ثواني", bad: "معرفتش أقرا الصورة دي، جرب صورة تانية.", nofood: "مش شايف أكل في الصورة دي. جرب تاني والوجبة ظاهرة في الصورة.", busy: "الماسح عليه ضغط كبير دلوقتي. جرب تاني آخر اليوم أو بكرة.", day: "وصلت للحد اليومي. جرب بكرة.", fail: "حصلت مشكلة. جرب تاني.", net: "مفيش اتصال. جرب تاني.", item: "الصنف", g: "جم", kcal: "سعر", total: "إجمالي السعرات", p: "بروتين", c: "كارب", f: "دهون", again: "صوّر وجبة تانية", needd: "اكتب اسمك ورقم الواتساب.", paying: "بفتحلك صفحة الدفع الآمنة…", pe: "معرفتش أبدأ الدفع. جرب تاني.", act: "تم التفعيل! اشتراكك شغال.", codebad: "الكود غير صحيح أو اتستخدم على جهاز تاني.", unpaid: "الدفع لسه ما اتأكدش. لو دفعت استنى دقيقة وحدّث الصفحة." }
+  };
+  var L = function () { return document.documentElement.lang === "ar" ? "ar" : "en"; };
+  var T = function () { return M[L()]; };
+  var dev; try { dev = localStorage.getItem("hl_cal_dev"); } catch (e) {}
+  if (!dev) { dev = ""; var a = "abcdefghijklmnopqrstuvwxyz0123456789"; for (var i = 0; i < 24; i++) dev += a[Math.floor(Math.random() * 36)]; try { localStorage.setItem("hl_cal_dev", dev); } catch (e) {} }
+  var S = null;
+  function post(p, b) { b.dev = dev; return fetch(API + p, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) }).then(function (r) { return r.json().then(function (j) { j._s = r.status; return j; }); }); }
+  function txt() {
+    var l = L(); document.querySelectorAll("[data-en]").forEach(function (e) { var v = e.getAttribute("data-" + l); if (v) e.textContent = v; });
+    document.querySelectorAll("[data-en-ph]").forEach(function (e) { e.placeholder = e.getAttribute("data-" + l + "-ph"); });
+    document.querySelector("main").dir = l === "ar" ? "rtl" : "ltr";
+    draw();
+  }
+  function draw() {
+    if (!S) return; var t = T();
+    if (S.pass_until) { var d = Math.max(1, Math.ceil((S.pass_until - Date.now()) / 86400000)); $("stTxt").textContent = S.owner ? "✓" : t.pass(d); }
+    else $("stTxt").textContent = S.free_left > 0 ? t.free(S.free_left) : t.none;
+    var locked = !S.pass_until && S.free_left <= 0;
+    $("pay").hidden = !locked; $("scan").hidden = locked && $("res").hidden === false ? false : locked;
+  }
+  function load() { post("/cal/status", {}).then(function (j) { if (!j.error) { S = j; draw(); } }).catch(function () {}); }
+  function shrink(f, cb) {
+    var r = new FileReader(); r.onload = function () { var im = new Image(); im.onload = function () {
+      var m = 1024, w = im.width, h = im.height, k = Math.min(1, m / Math.max(w, h)); w = Math.round(w * k); h = Math.round(h * k);
+      var c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(im, 0, 0, w, h); cb(c.toDataURL("image/jpeg", 0.8)); };
+      im.onerror = function () { cb(null); }; im.src = r.result; }; r.onerror = function () { cb(null); }; r.readAsDataURL(f);
+  }
+  function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+  function show(j, url) {
+    var t = T(), h = '<div class="tot">' + j.total.kcal + " " + t.kcal + "</div>";
+    h += '<div class="mac"><div><b>' + j.total.protein + " " + t.g + "</b>" + t.p + "</div><div><b>" + j.total.carbs + " " + t.g + "</b>" + t.c + "</div><div><b>" + j.total.fat + " " + t.g + "</b>" + t.f + "</div></div>";
+    h += "<table><tr><th>" + t.item + "</th><th>" + t.g + "</th><th>" + t.kcal + "</th></tr>";
+    j.items.forEach(function (i) { h += "<tr><td>" + esc(i.name) + "</td><td>" + i.grams + "</td><td>" + i.kcal + "</td></tr>"; });
+    h += '</table><button class="ghost" id="again" type="button">' + t.again + "</button>";
+    $("resBody").innerHTML = h; $("pv").src = url; $("res").hidden = false;
+    $("again").onclick = function () { $("res").hidden = true; $("msg").textContent = ""; $("scan").hidden = false; draw(); };
+  }
+  $("pick").onclick = function () { $("file").click(); };
+  $("file").onchange = function () {
+    var f = this.files && this.files[0]; this.value = ""; if (!f) return; var t = T();
+    $("pick").disabled = true; $("res").hidden = true; $("msg").textContent = t.wait;
+    shrink(f, function (url) {
+      if (!url) { $("pick").disabled = false; $("msg").textContent = t.bad; return; }
+      post("/cal/analyze", { image: url, lang: L() }).then(function (j) {
+        $("pick").disabled = false; $("msg").textContent = "";
+        if (j.free_left !== undefined) { S = { free_left: j.free_left, pass_until: j.pass_until, owner: j.owner }; }
+        if (j.ok && j.food) { show(j, url); draw(); $("scan").hidden = false; }
+        else if (j.ok) { $("msg").textContent = t.nofood; }
+        else if (j.error === "need_pass") { S = { free_left: 0, pass_until: 0 }; draw(); }
+        else if (j.error === "busy") $("msg").textContent = t.busy;
+        else if (j.error === "day_limit") $("msg").textContent = t.day;
+        else if (j.error === "bad_image") $("msg").textContent = t.bad;
+        else $("msg").textContent = t.fail;
+      }).catch(function () { $("pick").disabled = false; $("msg").textContent = t.net; });
+    });
+  };
+  $("payBtn").onclick = function () {
+    var t = T(), n = $("pn").value.trim(), p = $("pp").value.trim();
+    if (n.length < 2 || p.replace(/\D/g, "").length < 7) { $("payMsg").textContent = t.needd; return; }
+    $("payBtn").disabled = true; $("payMsg").textContent = t.paying;
+    fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ plan: "calpass", name: n, phone: p, lang: L() }) })
+      .then(function (r) { return r.json(); }).then(function (d) { if (d && d.url) location.href = d.url; else throw 0; })
+      .catch(function () { $("payBtn").disabled = false; $("payMsg").textContent = t.pe; });
+  };
+  $("codeBtn").onclick = function () { $("codeBox").hidden = !$("codeBox").hidden; };
+  function redeem(order) {
+    var t = T(); return post("/cal/redeem", { order: order }).then(function (j) {
+      if (j.pass_until) { S = j; $("pay").hidden = true; $("scan").hidden = false; $("msg").textContent = t.act; draw(); return true; }
+      $("payMsg").textContent = j.error === "not_paid" ? t.unpaid : t.codebad; return false; });
+  }
+  $("codeGo").onclick = function () { var c = $("code").value.trim(); if (c) redeem(c); };
+  var q = new URLSearchParams(location.search);
+  if (q.get("status") === "done" && q.get("order")) { $("pay").hidden = false; var tries = 0; (function go() { redeem(q.get("order")).then(function (ok) { if (!ok && tries++ < 8) setTimeout(go, 4000); }); })(); }
+  var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function () { setTimeout(txt, 50); });
+  txt(); load();
+})();
+</script>
+</body>
+</html>
