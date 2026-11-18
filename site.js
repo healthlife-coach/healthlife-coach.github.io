@@ -585,3 +585,20 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
+
+/* ---- visitor statistics (Cloudflare Web Analytics: free, no cookies). Open any page with ?notrack=1 once on your own devices to exclude your visits; ?notrack=0 turns counting back on ---- */
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get("notrack");
+    if (q === "1") localStorage.setItem("hl_notrack", "1");
+    if (q === "0") localStorage.removeItem("hl_notrack");
+    if (localStorage.getItem("hl_notrack") === "1") return;
+  } catch (e) {}
+  try {
+    var s = document.createElement("script");
+    s.type = "module"; s.defer = true;
+    s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    s.setAttribute("data-cf-beacon", '{"token": "4d129efb4b9d43c49010ecf619502ce5"}');
+    document.head.appendChild(s);
+  } catch (e) {}
+})();
