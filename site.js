@@ -532,18 +532,30 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
 
-/* ---- add Natures Glow link to every page's menu if missing ---- */
+/* ---- add Natures Glow + Calorie Scanner links to every page's menu if missing ---- */
 (function () {
+  function ar() { return document.documentElement.lang === "ar"; }
   function add() {
     var ul = document.querySelector("header nav ul");
-    if (!ul || ul.querySelector('a[href="glow.html"]')) return;
-    var li = document.createElement("li"), a = document.createElement("a");
-    a.href = "glow.html"; a.setAttribute("data-i18n", "nav_glow");
-    a.textContent = document.documentElement.lang === "ar" ? "نور الطبيعة" : "Natures Glow";
-    li.appendChild(a);
-    if (!ul.querySelector('a[href="calories.html"]')) { var l2 = document.createElement("li"), a2 = document.createElement("a"); a2.href = "calories.html"; a2.textContent = document.documentElement.lang === "ar" ? "ماسح السعرات" : "Calorie Scanner"; a2.setAttribute("data-cal-nav", "1"); l2.appendChild(a2); ul.appendChild(l2); var lb2 = document.getElementById("langBtn"); if (lb2) lb2.addEventListener("click", function () { setTimeout(function () { a2.textContent = document.documentElement.lang === "ar" ? "ماسح السعرات" : "Calorie Scanner"; }, 60); }); }
-    var fit = ul.querySelector('a[href="fitness.html"]');
-    if (fit && fit.parentNode && fit.parentNode.nextSibling) ul.insertBefore(li, fit.parentNode.nextSibling); else ul.appendChild(li);
+    if (!ul) return;
+    if (!ul.querySelector('a[href="glow.html"]')) {
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "glow.html"; a.setAttribute("data-i18n", "nav_glow");
+      a.textContent = ar() ? "نور الطبيعة" : "Natures Glow";
+      li.appendChild(a);
+      var fit = ul.querySelector('a[href="fitness.html"]');
+      if (fit && fit.parentNode && fit.parentNode.nextSibling) ul.insertBefore(li, fit.parentNode.nextSibling); else ul.appendChild(li);
+    }
+    var ca = ul.querySelector('a[href="calories.html"]');
+    if (!ca) {
+      var l2 = document.createElement("li"); ca = document.createElement("a"); ca.href = "calories.html";
+      l2.appendChild(ca);
+      var gl = ul.querySelector('a[href="glow.html"]');
+      if (gl && gl.parentNode && gl.parentNode.nextSibling) ul.insertBefore(l2, gl.parentNode.nextSibling); else ul.appendChild(l2);
+    }
+    function lab() { if (!ca.hasAttribute("data-en")) ca.textContent = ar() ? "ماسح السعرات" : "Calorie Scanner"; }
+    lab();
+    var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function () { setTimeout(lab, 60); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", add); else add();
 })();
