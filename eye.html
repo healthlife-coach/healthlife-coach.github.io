@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eye Awareness Check | HealthLife</title>
+<meta name="description" content="Eye awareness check: take a photo of your eyes and see visible signs worth discussing with a doctor.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+<style id="pm-inline">
+/* payment methods */
+.pm{max-width:760px;margin:0 auto}
+.pm-group{margin-bottom:26px}
+.pm-label{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:12px}
+.pm-label .dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
+.pm-label.soon .dot{background:#f5c542}
+.pm-row{display:flex;flex-wrap:wrap;gap:10px}
+.pm-pill{padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:600}
+.pm-pill.on{border-color:var(--lime);color:var(--lime)}
+.pm-pill.off{opacity:.75;border-style:dashed;color:var(--muted)}
+.pm-note{color:var(--muted);font-size:14px;margin-top:10px}
+
+.pm-logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px}
+.pm-item{margin:0;text-align:center}
+.pm-logo{display:flex;align-items:center;justify-content:center;height:84px;border-radius:14px;padding:12px 16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.pm-logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.pm-item figcaption{margin-top:8px;font-size:13px;color:var(--muted)}
+.bk{display:grid;grid-template-columns:260px 1fr;gap:34px;align-items:start}
+.bk img.cover{width:100%;height:auto;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.bk .price{font-size:40px;font-weight:800;color:var(--lime);margin:6px 0 14px}
+@media(max-width:700px){.bk{grid-template-columns:1fr}.bk img.cover{max-width:240px;margin:0 auto;display:block}}
+</style>
+<style>[hidden]{display:none!important}</style>
+</head>
+<body data-page="eye">
+
+<header>
+  <nav>
+    <a class="brand" href="index.html"><img src="logo.png" alt="HealthLife logo" onerror="this.style.display='none'">HEALTHLIFE</a>
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
+      <li><a href="index.html#packages" data-i18n="nav_packages">Packages</a></li>
+      <li><a href="book.html" data-i18n="nav_book">Recipe Book</a></li>
+      <li><a href="fitness.html" data-i18n="nav_fitness">Fitness Book</a></li>
+      <li><a href="glow.html" data-i18n="nav_glow">Natures Glow</a></li>
+      <li><a href="calories.html" data-en="Calorie Scanner" data-ar="ماسح السعرات">Calorie Scanner</a></li>
+      <li><a href="eye.html" class="active" data-en="Eye Check" data-ar="فحص العين">Eye Check</a></li>
+      <li><a href="simulator.html" data-i18n="nav_sim">Simulator</a></li>
+      <li><a href="simlink.html" data-i18n="nav_coach">Client Link</a></li>
+      <li><a href="assessment.html" data-i18n="nav_assess">Health Check</a></li>
+      <li><a href="transformations.html" data-i18n="nav_results">Transformations</a></li>
+      <li><a href="payment.html" data-i18n="nav_pay">Payment</a></li>
+      <li><a href="index.html#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <button class="lang" id="langBtn" type="button" aria-label="Change language">العربية</button>
+  </nav>
+</header>
+
+<style>
+.cs{max-width:640px;margin:0 auto;padding:28px 16px 60px}
+.cs h1{font-size:30px;margin:0 0 8px}
+.cs .lead{color:var(--muted);margin:0 0 20px}
+.cs .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+.cs .big{display:block;width:100%;padding:16px;border-radius:14px;border:0;background:var(--lime);color:#0b2a1c;font:inherit;font-weight:800;font-size:18px;cursor:pointer;text-align:center}
+.cs .big[disabled]{opacity:.5;cursor:default}
+.cs .ghost{display:block;width:100%;margin-top:10px;padding:12px;border-radius:12px;border:1px solid var(--line);background:transparent;color:inherit;font:inherit;cursor:pointer}
+.cs input[type=text],.cs input[type=tel]{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:transparent;color:inherit;font:inherit;margin:6px 0}
+.cs .st{color:var(--muted);font-size:14px;margin:10px 0 0;text-align:center}
+.cs img.pv{width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:12px}
+.cs table{width:100%;border-collapse:collapse;font-size:14px}
+.cs td,.cs th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:start}
+.cs .tot{font-size:34px;font-weight:800;color:var(--lime);margin:4px 0}
+.cs .mac{display:flex;gap:8px;margin:10px 0}
+.cs .mac div{flex:1;text-align:center;background:rgba(255,255,255,.06);border-radius:10px;padding:8px 4px;font-size:13px}
+.cs .mac b{display:block;font-size:18px}
+.cs .fine{font-size:12px;color:var(--muted);margin-top:10px}
+.cs .err{color:#ffb4a8}
+.cs .sg{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.cs .sg .ic{flex:none;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;background:rgba(255,255,255,.1)}.cs .sg.none .ic{background:#1f7a4d;color:#fff}.cs .sg.possible .ic{background:#f5c542;color:#222}.cs .sg b{display:block}.cs .sg span{font-size:14px;color:var(--muted)}.cs .warn{border-color:#f5c542}.cs details{margin:8px 0}.cs summary{cursor:pointer;font-weight:700}.cs ol{padding-inline-start:20px;font-size:13px;color:var(--muted)}.cs .pv2{display:flex;gap:8px}.cs .pv2 img{width:50%;height:140px;object-fit:cover;border-radius:10px}.cs .slot{margin:10px 0}.cs .slot .ghost{margin-top:4px}
+.cs[hidden],.cs [hidden]{display:none!important}
+</style>
+
+<main class="cs">
+  <h1 data-en="Eye Awareness Check" data-ar="فحص العين التوعوي">Eye Awareness Check</h1>
+  <p class="lead" data-en="Take a photo of your eyes and see which visible signs may be worth discussing with a doctor." data-ar="صوّر عينيك وشوف إيه العلامات الظاهرة اللي ممكن تستحق إنك تعرضها على دكتور.">Take a photo of your eyes and see which visible signs may be worth discussing with a doctor.</p>
+
+  <div class="box warn"><b data-en="Important" data-ar="مهم">Important</b>
+    <p class="fine" style="margin:6px 0 0" data-en="This is an awareness tool, not a medical test and not a diagnosis. It does NOT measure blood pressure, blood sugar or any disease: those need a doctor and lab tests. It only looks at 6 visible external signs. If you have sudden vision loss, eye pain, double vision or a sudden drooping eyelid, go to the emergency room." data-ar="دي أداة توعية مش فحص طبي ومش تشخيص. وهي لا تقيس الضغط ولا السكر ولا أي مرض: دي محتاجة دكتور وتحاليل. هي بس بتبص على 6 علامات ظاهرة من برّه. لو عندك فقدان مفاجئ في النظر أو ألم في العين أو ازدواج رؤية أو تدلّي مفاجئ في الجفن، اروح الطوارئ فوراً.">This is an awareness tool.</p></div>
+
+  <div class="box" id="stBox"><div id="stTxt"></div></div>
+
+  <div class="box" id="scan">
+    <b data-en="How to take the photos" data-ar="إزاي تصوّر">How to take the photos</b>
+    <ol>
+      <li data-en="Daylight near a window, no flash, no filters, no glasses." data-ar="ضوء النهار جنب شباك، من غير فلاش ولا فلاتر ولا نضارة.">Daylight near a window.</li>
+      <li data-en="Photo 1: both eyes open, looking at the camera, about 15 cm away, sharp and bright." data-ar="صورة 1: العينين مفتوحتين وبتبص للكاميرا، على بعد حوالي 15 سم، واضحة ومنوّرة.">Photo 1</li>
+      <li data-en="Photo 2 (recommended): pull the lower eyelid down gently while looking up, so the pink inner lining shows." data-ar="صورة 2 (مفضّلة): شد الجفن السفلي لتحت بلطف وانت بتبص لفوق، عشان الجزء الوردي الداخلي يبان.">Photo 2</li>
+    </ol>
+    <input type="file" id="f1" accept="image/*" hidden><input type="file" id="f2" accept="image/*" hidden>
+    <div class="slot"><button class="ghost" id="p1" type="button" data-en="📷 Photo 1: both eyes (required)" data-ar="📷 صورة 1: العينين (مطلوبة)">📷 Photo 1</button></div>
+    <div class="slot"><button class="ghost" id="p2" type="button" data-en="📷 Photo 2: lower eyelid (optional)" data-ar="📷 صورة 2: الجفن السفلي (اختيارية)">📷 Photo 2</button></div>
+    <div class="pv2" id="pvs" hidden><img id="pv1" alt=""><img id="pv2" alt="" hidden></div>
+    <button class="big" id="go" type="button" disabled data-en="Analyse my photos" data-ar="حلّل صوري">Analyse my photos</button>
+    <p class="st" id="msg"></p>
+    <button class="ghost" id="codeBtn2" type="button" data-en="I have an access code" data-ar="معايا كود تفعيل">I have an access code</button>
+    <div id="codeBox2" hidden><input type="text" id="code2" placeholder="HL-calpass-..." dir="ltr"><button class="big" id="codeGo2" type="button" data-en="Activate" data-ar="فعّل">Activate</button></div>
+  </div>
+
+  <div class="box" id="res" hidden>
+    <div id="resBody"></div>
+    <button class="ghost" id="again" type="button" data-en="New check" data-ar="فحص جديد">New check</button>
+  </div>
+
+  <div class="box" id="pay" hidden>
+    <h2 style="margin-top:0" data-en="Unlock the Eye Check" data-ar="افتح فحص العين">Unlock the Eye Check</h2>
+    <p data-en="One pass for $3 gives you 30 days of the Eye Check and the Meal Calorie Scanner. Renew any time, new days are added on top." data-ar="اشتراك واحد بـ 3$ بيفتحلك فحص العين وماسح السعرات لمدة 30 يوم. تقدر تجدد في أي وقت والأيام بتتضاف فوق المتبقي.">One pass for $3.</p>
+    <p class="fine" id="calTerms" data-en="This is a digital 30-day pass. Once activated it is non-refundable. This is an awareness tool, not a medical diagnosis. Photos are not saved. See the full terms in the footer." data-ar="ده اشتراك رقمي لمدة 30 يوماً. بعد التفعيل لا يمكن استرداده. دي أداة توعية مش تشخيص طبي. الصور لا تُحفظ. الشروط كاملة في أسفل الصفحة.">Digital pass, non-refundable.</p>
+    <input type="text" id="pn" autocomplete="name" data-en-ph="Your name" data-ar-ph="اسمك">
+    <input type="tel" id="pp" autocomplete="tel" data-en-ph="WhatsApp number" data-ar-ph="رقم الواتساب">
+    <button class="big" id="payBtn" type="button" data-en="Pay $3 and unlock 30 days" data-ar="ادفع 3$ وافتح 30 يوم">Pay $3 and unlock 30 days</button>
+    <p class="st" id="payMsg"></p>
+    <button class="ghost" id="codeBtn" type="button" data-en="I have an access code" data-ar="معايا كود تفعيل">I have an access code</button>
+    <div id="codeBox" hidden><input type="text" id="code" placeholder="HL-calpass-..." dir="ltr"><button class="big" id="codeGo" type="button" data-en="Activate" data-ar="فعّل">Activate</button></div>
+  </div>
+
+  <div class="box">
+    <h2 style="margin-top:0" data-en="What it looks for" data-ar="بتبص على إيه">What it looks for</h2>
+    <div id="signList"></div>
+    <details><summary data-en="Why it does not measure blood pressure" data-ar="ليه مبتقيسش الضغط">Why it does not measure blood pressure</summary>
+      <p class="fine" data-en="Blood pressure can affect the tiny blood vessels at the back of the eye (the retina), but seeing them needs a special medical camera or ophthalmoscope and a doctor to read it. A normal phone photo of the outside of the eye cannot show them, so no honest app can read your blood pressure from a selfie. Use a validated cuff and see your doctor." data-ar="الضغط ممكن يأثر على الأوعية الدقيقة في قاع العين (الشبكية)، بس رؤيتها محتاجة كاميرا طبية خاصة أو منظار عيون ودكتور يقرأها. صورة موبايل عادية للعين من برّه مش بتوريها، فمفيش تطبيق أمين يقدر يقرأ ضغطك من سيلفي. استخدم جهاز ضغط معتمد واسأل دكتور.">Needs a special medical camera.</p></details>
+    <details><summary data-en="Scientific references" data-ar="المراجع العلمية">Scientific references</summary>
+      <ol dir="ltr">
+        <li>Fargo MV, Grogan SP, Saguil A. Evaluation of Jaundice in Adults. Am Fam Physician. 2017;95(3):164-168.</li>
+        <li>Sheth TN, Choudhry NK, Bowes M, Detsky AS. The relation of conjunctival pallor to the presence of anemia. J Gen Intern Med. 1997;12(2):102-106.</li>
+        <li>Kalantri A, et al. Accuracy and reliability of pallor for detecting anaemia: a hospital-based diagnostic accuracy study. PLoS One. 2010;5(1):e8545.</li>
+        <li>Christoffersen M, Frikke-Schmidt R, Schnohr P, et al. Xanthelasmata, arcus corneae, and ischaemic vascular disease and death in general population: prospective cohort study. BMJ. 2011;343:d5497.</li>
+        <li>Zech LA Jr, Hoeg JM. Correlating corneal arcus with atherosclerosis in familial hypercholesterolemia. Lipids Health Dis. 2008;7:7.</li>
+        <li>Leibowitz HM. The red eye. N Engl J Med. 2000;343(5):345-351.</li>
+        <li>Finsterer J. Ptosis: causes, presentation, and management. Aesthetic Plast Surg. 2003;27(3):193-204.</li>
+        <li>Wong TY, Mitchell P. Hypertensive retinopathy. N Engl J Med. 2004;351(22):2310-2317.</li>
+      </ol></details>
+  </div>
+</main>
+
+
+<footer>© <span id="yr"></span> HealthLife – Abdelrahman ze coach.</footer>
+
+<script src="site.js?v=13"></script>
+<script>
+(function () {
+  var API = "https://healthlife-pay.abdelrahmansarya90.workers.dev";
+  var $ = function (i) { return document.getElementById(i); };
+  var SG = {
+    scleral_yellow: { en: ["Yellowish whites of the eyes", "A yellow tint may be present. It can have several causes (liver, bile ducts, blood breakdown). Worth a medical check, a blood test can tell."], ar: ["اصفرار بياض العين", "ممكن يكون في لون أصفر. له أسباب كتير (كبد، قنوات مرارية، تكسير دم). يستحق كشف وتحليل دم عند دكتور."] },
+    lid_pallor: { en: ["Pale inner lower eyelid", "The lining may look pale. Paleness can go with low iron or anemia; only a blood test (CBC) can tell."], ar: ["شحوب باطن الجفن السفلي", "الجزء الداخلي ممكن يكون باهت. الشحوب ممكن يكون مرتبط بنقص حديد أو أنيميا، وصحيح ده بتأكده صورة الدم (CBC) بس."] },
+    xanthelasma: { en: ["Yellowish patches on the eyelids", "May be small fat deposits, sometimes linked to blood fats (cholesterol). A lipid blood test is suggested."], ar: ["بقع صفراء على الجفون", "ممكن تكون ترسبات دهنية صغيرة، وأحياناً بتكون مرتبطة بدهون الدم (الكوليسترول). يُنصح بتحليل دهون."] },
+    arcus: { en: ["Grey-white ring around the cornea", "Common and often normal with age. If you are under 45, it is worth checking blood fats with a doctor."], ar: ["حلقة رمادية حول القرنية", "شائعة وغالباً طبيعية مع السن. لو عمرك أقل من 45 يستحق تشيّك دهون الدم عند دكتور."] },
+    redness: { en: ["Persistent redness", "Redness has many common causes (dryness, allergy, tiredness, screens, infection). If it lasts more than a few days, hurts, or affects vision, see an eye doctor."], ar: ["احمرار العين", "الاحمرار له أسباب كتير شائعة (جفاف، حساسية، إرهاق، شاشات، التهاب). لو استمر أكتر من كام يوم أو معاه ألم أو تأثير على النظر روح لدكتور عيون."] },
+    ptosis: { en: ["Eyelid droop or difference between the eyes", "One lid may sit lower than the other. Often harmless, but if it is new or sudden see a doctor."], ar: ["تدلّي الجفن أو اختلاف العينين", "جفن ممكن يكون أقل من التاني. غالباً بسيط، بس لو جديد أو مفاجئ اعرضه على دكتور."] }
+  };
+  var ORDER = ["scleral_yellow", "lid_pallor", "xanthelasma", "arcus", "redness", "ptosis"];
+  var M = {
+    en: { free: "", pass: function (d) { return "Pass active: " + d + " days left"; }, none: "Locked: activate the pass to use the Eye Check", wait: "Analysing your photos… a few seconds", bad: "Could not read the photo, try another one.", noeye: "I could not see clearly the eyes in photo 1. Retake it close, bright and sharp.", busy: "The check is very busy right now. Please try again later.", day: "You reached today's limit. Try again tomorrow.", fail: "Something went wrong. Please try again.", net: "No connection. Please try again.", needd: "Please enter your name and WhatsApp number.", paying: "Opening the secure payment page…", pe: "Could not start the payment. Please try again.", act: "Activated! Your pass is active.", codebad: "This code is not valid or was already used on another device.", unpaid: "Payment not confirmed yet. If you paid, wait a minute and refresh.", n: "Not noticed in this photo.", p: "May be present", u: "Not clear enough. Retake in daylight.", poor: "Photo quality was low, so results may be unreliable. Try daylight and a sharper photo.", s0: "No signs noticed in these photos. This does not rule anything out: routine check-ups and blood-pressure checks still matter.", s1: function (n) { return n + " sign(s) may be worth discussing with a doctor. This is not a diagnosis."; }, foot: "Awareness only, not a medical diagnosis. Photos are not saved." },
+    ar: { free: "", pass: function (d) { return "الاشتراك شغال: فاضل " + d + " يوم"; }, none: "مقفول: فعّل الاشتراك عشان تستخدم فحص العين", wait: "بحلل صورك… ثواني", bad: "معرفتش أقرا الصورة، جرب تانية.", noeye: "مش شايف العينين بوضوح في الصورة 1. صوّر تاني من قريب وبإضاءة كويسة وصورة حادة.", busy: "الفحص عليه ضغط كبير دلوقتي. جرب تاني بعدين.", day: "وصلت للحد اليومي. جرب بكرة.", fail: "حصلت مشكلة. جرب تاني.", net: "مفيش اتصال. جرب تاني.", needd: "اكتب اسمك ورقم الواتساب.", paying: "بفتحلك صفحة الدفع الآمنة…", pe: "معرفتش أبدأ الدفع. جرب تاني.", act: "تم التفعيل! اشتراكك شغال.", codebad: "الكود غير صحيح أو اتستخدم على جهاز تاني.", unpaid: "الدفع لسه ما اتأكدش. لو دفعت استنى دقيقة وحدّث الصفحة.", n: "مش ملحوظة في الصورة دي.", p: "ممكن تكون موجودة", u: "مش واضحة كفاية. صوّر تاني في ضوء النهار.", poor: "جودة الصورة ضعيفة فالنتيجة ممكن تكون مش دقيقة. جرب ضوء نهار وصورة أحدّ.", s0: "مفيش علامات ملحوظة في الصور دي. ده لا ينفي أي حاجة: الفحوصات الدورية وقياس الضغط لسه مهمين.", s1: function (n) { return n + " علامة ممكن تستحق إنك تعرضها على دكتور. ده مش تشخيص."; }, foot: "للتوعية فقط، مش تشخيص طبي. الصور لا تُحفظ." }
+  };
+  var L = function () { return document.documentElement.lang === "ar" ? "ar" : "en"; };
+  var T = function () { return M[L()]; };
+  var dev; try { dev = localStorage.getItem("hl_cal_dev"); } catch (e) {}
+  if (!dev) { dev = ""; var a = "abcdefghijklmnopqrstuvwxyz0123456789"; for (var i = 0; i < 24; i++) dev += a[Math.floor(Math.random() * 36)]; try { localStorage.setItem("hl_cal_dev", dev); } catch (e) {} }
+  var S = null, I1 = null, I2 = null, last = null;
+  function post(p, b) { b.dev = dev; return fetch(API + p, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) }).then(function (r) { return r.json().then(function (j) { j._s = r.status; return j; }); }); }
+  function txt() {
+    var l = L(); document.querySelectorAll("[data-en]").forEach(function (e) { var v = e.getAttribute("data-" + l); if (v) e.textContent = v; });
+    document.querySelectorAll("[data-en-ph]").forEach(function (e) { e.placeholder = e.getAttribute("data-" + l + "-ph"); });
+    document.querySelector("main").dir = l === "ar" ? "rtl" : "ltr";
+    var h = ""; ORDER.forEach(function (k) { h += '<div class="sg"><div class="ic">•</div><div><b>' + SG[k][l][0] + "</b></div></div>"; });
+    $("signList").innerHTML = h; draw(); if (last) render(last);
+  }
+  function draw() {
+    if (!S) return; var t = T(), locked = !S.pass_until;
+    if (S.pass_until) { var d = Math.max(1, Math.ceil((S.pass_until - Date.now()) / 86400000)); $("stTxt").textContent = S.owner ? "✓" : t.pass(d); } else $("stTxt").textContent = t.none;
+    $("pay").hidden = !locked; $("scan").hidden = locked && $("res").hidden;
+    if (locked) $("scan").hidden = false;
+    $("go").disabled = !I1 || locked;
+  }
+  function load() { post("/cal/status", {}).then(function (j) { if (!j.error) { S = j; draw(); } }).catch(function () {}); }
+  function shrink(f, cb) {
+    var r = new FileReader(); r.onload = function () { var im = new Image(); im.onload = function () {
+      var m = 1024, w = im.width, h = im.height, k = Math.min(1, m / Math.max(w, h)); w = Math.round(w * k); h = Math.round(h * k);
+      var c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(im, 0, 0, w, h); cb(c.toDataURL("image/jpeg", 0.85)); };
+      im.onerror = function () { cb(null); }; im.src = r.result; }; r.onerror = function () { cb(null); }; r.readAsDataURL(f);
+  }
+  function render(j) {
+    var t = T(), l = L(), h = "", n = 0;
+    ORDER.forEach(function (k) {
+      var st = j.signs[k]; if (st === "possible") n++;
+      var cls = st === "possible" ? "possible" : st === "none" ? "none" : "unclear", icon = st === "possible" ? "!" : st === "none" ? "✓" : "?";
+      var detail = st === "possible" ? SG[k][l][1] : st === "none" ? t.n : t.u;
+      h += '<div class="sg ' + cls + '"><div class="ic">' + icon + "</div><div><b>" + SG[k][l][0] + " — " + (st === "possible" ? t.p : st === "none" ? "" : "") + "</b><span>" + detail + "</span></div></div>";
+    });
+    h = '<p style="font-weight:700;margin-top:0">' + (n ? t.s1(n) : t.s0) + "</p>" + (j.quality === "poor" ? '<p class="fine err">' + t.poor + "</p>" : "") + h + '<p class="fine">' + t.foot + "</p>";
+    $("resBody").innerHTML = h.replace(/ — <\/b>/g, "</b>"); $("res").hidden = false;
+  }
+  function pick(btn, file, which) {
+    $(btn).onclick = function () { $(file).click(); };
+    $(file).onchange = function () {
+      var f = this.files && this.files[0]; this.value = ""; if (!f) return;
+      shrink(f, function (url) {
+        if (!url) { $("msg").textContent = T().bad; return; }
+        $("msg").textContent = "";
+        if (which === 1) { I1 = url; $("pv1").src = url; } else { I2 = url; $("pv2").src = url; $("pv2").hidden = false; }
+        $("pvs").hidden = false; draw();
+      });
+    };
+  }
+  pick("p1", "f1", 1); pick("p2", "f2", 2);
+  $("go").onclick = function () {
+    var t = T(); if (!I1) return; $("go").disabled = true; $("res").hidden = true; last = null; $("msg").textContent = t.wait;
+    post("/eye/analyze", { images: I2 ? [I1, I2] : [I1], lang: L() }).then(function (j) {
+      $("msg").textContent = "";
+      if (j.pass_until !== undefined) S = { free_left: 0, pass_until: j.pass_until, owner: j.owner };
+      if (j.ok && j.eyes) { last = j; render(j); }
+      else if (j.ok) $("msg").textContent = t.noeye;
+      else if (j.error === "need_pass") { S = { pass_until: 0 }; }
+      else if (j.error === "busy") $("msg").textContent = t.busy;
+      else if (j.error === "day_limit") $("msg").textContent = t.day;
+      else if (j.error === "bad_image") $("msg").textContent = t.bad;
+      else $("msg").textContent = t.fail;
+      draw();
+    }).catch(function () { $("msg").textContent = t.net; draw(); });
+  };
+  $("again").onclick = function () { $("res").hidden = true; last = null; I1 = I2 = null; $("pvs").hidden = true; $("pv2").hidden = true; draw(); };
+  $("payBtn").onclick = function () {
+    var t = T(), n = $("pn").value.trim(), p = $("pp").value.trim();
+    if (n.length < 2 || p.replace(/\D/g, "").length < 7) { $("payMsg").textContent = t.needd; return; }
+    $("payBtn").disabled = true; $("payMsg").textContent = t.paying;
+    fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ plan: "calpass", ret: "eye", name: n, phone: p, lang: L() }) })
+      .then(function (r) { return r.json(); }).then(function (d) { if (d && d.url) location.href = d.url; else throw 0; })
+      .catch(function () { $("payBtn").disabled = false; $("payMsg").textContent = t.pe; });
+  };
+  $("codeBtn").onclick = function () { $("codeBox").hidden = !$("codeBox").hidden; };
+  function redeem(order) {
+    var t = T(); return post("/cal/redeem", { order: order }).then(function (j) {
+      if (j.pass_until) { S = j; $("msg").textContent = t.act; draw(); return true; }
+      $("payMsg").textContent = j.error === "not_paid" ? t.unpaid : t.codebad; return false; });
+  }
+  $("codeBtn2").onclick = function () { $("codeBox2").hidden = !$("codeBox2").hidden; };
+  $("codeGo2").onclick = function () { var c = $("code2").value.trim(); if (c) redeem(c).then(function (ok) { if (!ok) $("msg").textContent = T().codebad; else $("codeBox2").hidden = true; }); };
+  $("codeGo").onclick = function () { var c = $("code").value.trim(); if (c) redeem(c); };
+  var q = new URLSearchParams(location.search);
+  if (q.get("status") === "done" && q.get("order")) { $("pay").hidden = false; var tries = 0; (function go() { redeem(q.get("order")).then(function (ok) { if (!ok && tries++ < 8) setTimeout(go, 4000); }); })(); }
+  var lb = document.getElementById("langBtn"); if (lb) lb.addEventListener("click", function () { setTimeout(txt, 50); });
+  txt(); load();
+})();
+</script>
+</body>
+</html>
