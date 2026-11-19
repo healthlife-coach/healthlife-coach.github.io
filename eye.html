@@ -80,6 +80,7 @@
 .cs .err{color:#ffb4a8}
 .cs .sg{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.cs .sg .ic{flex:none;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;background:rgba(255,255,255,.1)}.cs .sg.none .ic{background:#1f7a4d;color:#fff}.cs .sg.possible .ic{background:#f5c542;color:#222}.cs .sg b{display:block}.cs .sg span{font-size:14px;color:var(--muted)}.cs .warn{border-color:#f5c542}.cs details{margin:8px 0}.cs summary{cursor:pointer;font-weight:700}.cs ol{padding-inline-start:20px;font-size:13px;color:var(--muted)}.cs .pv2{display:flex;gap:8px}.cs .pv2 img{width:50%;height:140px;object-fit:cover;border-radius:10px}.cs .slot{margin:10px 0}.cs .slot .ghost{margin-top:4px}
 .cs[hidden],.cs [hidden]{display:none!important}
+#cam[hidden]{display:none!important}
 </style>
 
 <main class="cs">
@@ -99,8 +100,10 @@
       <li data-en="Photo 2 (recommended): pull the lower eyelid down gently while looking up, so the pink inner lining shows." data-ar="صورة 2 (مفضّلة): شد الجفن السفلي لتحت بلطف وانت بتبص لفوق، عشان الجزء الوردي الداخلي يبان.">Photo 2</li>
     </ol>
     <input type="file" id="f1" accept="image/*" hidden><input type="file" id="f2" accept="image/*" hidden>
-    <div class="slot"><button class="ghost" id="p1" type="button" data-en="📷 Photo 1: both eyes (required)" data-ar="📷 صورة 1: العينين (مطلوبة)">📷 Photo 1</button></div>
-    <div class="slot"><button class="ghost" id="p2" type="button" data-en="📷 Photo 2: lower eyelid (optional)" data-ar="📷 صورة 2: الجفن السفلي (اختيارية)">📷 Photo 2</button></div>
+    <div class="slot"><b data-en="Photo 1: both eyes (required)" data-ar="صورة 1: العينين (مطلوبة)">Photo 1</b>
+      <div class="pv2"><button class="ghost" id="p1" type="button" data-en="📷 Open camera" data-ar="📷 افتح الكاميرا">📷 Open camera</button><button class="ghost" id="g1" type="button" data-en="🖼 From gallery" data-ar="🖼 من المعرض">🖼 From gallery</button></div></div>
+    <div class="slot"><b data-en="Photo 2: lower eyelid (optional)" data-ar="صورة 2: الجفن السفلي (اختيارية)">Photo 2</b>
+      <div class="pv2"><button class="ghost" id="p2" type="button" data-en="📷 Open camera" data-ar="📷 افتح الكاميرا">📷 Open camera</button><button class="ghost" id="g2" type="button" data-en="🖼 From gallery" data-ar="🖼 من المعرض">🖼 From gallery</button></div></div>
     <div class="pv2" id="pvs" hidden><img id="pv1" alt=""><img id="pv2" alt="" hidden></div>
     <button class="big" id="go" type="button" disabled data-en="Analyse my photos" data-ar="حلّل صوري">Analyse my photos</button>
     <p class="st" id="msg"></p>
@@ -147,6 +150,7 @@
 
 <footer>© <span id="yr"></span> HealthLife – Abdelrahman ze coach.</footer>
 
+<div id="cam" hidden style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;flex-direction:column"><video id="cv" autoplay playsinline muted style="flex:1;min-height:0;width:100%;object-fit:cover"></video><p id="ch" style="color:#fff;text-align:center;margin:6px 10px;font-size:14px"></p><div style="display:flex;gap:10px;padding:12px;background:#000"><button type="button" id="cx" style="flex:1;padding:14px;border-radius:12px;border:1px solid #fff;background:transparent;color:#fff;font:inherit">✕</button><button type="button" id="cs" style="flex:2;padding:14px;border-radius:12px;border:0;background:#b6ec00;color:#0b2a1c;font:inherit;font-weight:800"></button><button type="button" id="cf" style="flex:1;padding:14px;border-radius:12px;border:1px solid #fff;background:transparent;color:#fff;font:inherit">⟲</button></div></div>
 <script src="site.js?v=13"></script>
 <script>
 (function () {
@@ -203,19 +207,41 @@
     h = '<p style="font-weight:700;margin-top:0">' + (n ? t.s1(n) : t.s0) + "</p>" + (j.quality === "poor" ? '<p class="fine err">' + t.poor + "</p>" : "") + h + '<p class="fine">' + t.foot + "</p>";
     $("resBody").innerHTML = h.replace(/ — <\/b>/g, "</b>"); $("res").hidden = false;
   }
-  function pick(btn, file, which) {
-    $(btn).onclick = function () { $(file).click(); };
-    $(file).onchange = function () {
-      var f = this.files && this.files[0]; this.value = ""; if (!f) return;
-      shrink(f, function (url) {
-        if (!url) { $("msg").textContent = T().bad; return; }
-        $("msg").textContent = "";
-        if (which === 1) { I1 = url; $("pv1").src = url; } else { I2 = url; $("pv2").src = url; $("pv2").hidden = false; }
-        $("pvs").hidden = false; draw();
-      });
-    };
+  function setImg(which, f) {
+    shrink(f, function (url) {
+      if (!url) { $("msg").textContent = T().bad; return; }
+      $("msg").textContent = "";
+      if (which === 1) { I1 = url; $("pv1").src = url; } else { I2 = url; $("pv2").src = url; $("pv2").hidden = false; }
+      $("pvs").hidden = false; draw();
+    });
   }
-  pick("p1", "f1", 1); pick("p2", "f2", 2);
+  function gal(btn, file, which) {
+    $(btn).onclick = function () { $(file).click(); };
+    $(file).onchange = function () { var f = this.files && this.files[0]; this.value = ""; if (f) setImg(which, f); };
+  }
+  var stream = null, facing = "user", camFor = 1;
+  function stopCam() { if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; } $("cam").hidden = true; }
+  function startCam() {
+    if (stream) stream.getTracks().forEach(function (t) { t.stop(); });
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: facing, width: { ideal: 1280 }, height: { ideal: 960 } }, audio: false }).then(function (s) {
+      stream = s; $("cv").srcObject = s; $("cam").hidden = false;
+      $("cv").style.transform = facing === "user" ? "scaleX(-1)" : "none";
+      $("cs").textContent = L() === "ar" ? "📸 التقط الصورة" : "📸 Capture";
+      $("ch").textContent = camFor === 1 ? (L() === "ar" ? "العينين مفتوحتين، قريب (حوالي 15 سم)، ضوء نهار" : "Both eyes open, close (about 15 cm), daylight") : (L() === "ar" ? "شد الجفن السفلي لتحت وبص لفوق" : "Pull the lower eyelid down and look up");
+    }).catch(function () { stopCam(); $("msg").textContent = L() === "ar" ? "الكاميرا مش متاحة. اسمح للموقع بالكاميرا أو اختار من المعرض." : "Camera not available. Allow camera access or choose from the gallery."; });
+  }
+  function openCam(which) { camFor = which; if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { $("f" + which).setAttribute("capture", "user"); $("f" + which).click(); return; } startCam(); }
+  $("p1").onclick = function () { openCam(1); }; $("p2").onclick = function () { openCam(2); };
+  $("cx").onclick = stopCam; $("cf").onclick = function () { facing = facing === "user" ? "environment" : "user"; startCam(); };
+  $("cs").onclick = function () {
+    var v = $("cv"); if (!v.videoWidth) return;
+    var k = Math.min(1, 1024 / Math.max(v.videoWidth, v.videoHeight)), c = document.createElement("canvas"); c.width = Math.round(v.videoWidth * k); c.height = Math.round(v.videoHeight * k);
+    c.getContext("2d").drawImage(v, 0, 0, c.width, c.height);
+    var url = c.toDataURL("image/jpeg", 0.85), w = camFor; stopCam();
+    if (w === 1) { I1 = url; $("pv1").src = url; } else { I2 = url; $("pv2").src = url; $("pv2").hidden = false; }
+    $("pvs").hidden = false; draw();
+  };
+  gal("g1", "f1", 1); gal("g2", "f2", 2);
   $("go").onclick = function () {
     var t = T(); if (!I1) return; $("go").disabled = true; $("res").hidden = true; last = null; $("msg").textContent = t.wait;
     post("/eye/analyze", { images: I2 ? [I1, I2] : [I1], lang: L() }).then(function (j) {
