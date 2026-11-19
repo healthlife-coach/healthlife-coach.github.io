@@ -38,7 +38,7 @@
       pk2_l3:"Weekly follow-up via WhatsApp",
       why_h:"Why we recommend Daily Follow-up",
       why_p:"Daily contact with your coach keeps you motivated, accountable and on track. That is what turns a plan into a real transformation.",
-      why_stat_t:"of clients on the Daily Follow-up package reached their transformation goal",
+      why_stat_t:"Daily follow-up means a real coach checks in with you every day. See real client results on the Transformations page.",
       why_fine:"Individual results vary and depend on commitment to the plan.",
       /* home transformations preview */
       tr_h:"Real Transformations", tr_sub:"Real clients, real results. Faces are blurred to protect their privacy.",
@@ -140,7 +140,7 @@
       pk2_l3:"متابعة أسبوعية عبر واتساب",
       why_h:"لماذا ننصح بالمتابعة اليومية؟",
       why_p:"التواصل اليومي مع الكابتن يبقيك متحمسًا وملتزمًا وعلى المسار الصحيح، وهذا ما يحوّل الخطة إلى تحول حقيقي.",
-      why_stat_t:"من عملاء باقة المتابعة اليومية وصلوا إلى هدفهم في التحول",
+      why_stat_t:"المتابعة اليومية معناها إن في كابتن حقيقي بيتابع معاك كل يوم. شوف نتايج عملاء حقيقيين في صفحة التحوّلات.",
       why_fine:"تختلف النتائج من شخص لآخر وتعتمد على الالتزام بالخطة.",
       tr_h:"تحولات حقيقية", tr_sub:"عملاء حقيقيون ونتائج حقيقية. تم تغبيش الوجوه لحماية خصوصيتهم.",
       tr_more:"شاهد كل التحولات",
