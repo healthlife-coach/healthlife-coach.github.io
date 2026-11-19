@@ -570,7 +570,7 @@
 (function () {
   try {
     var st = document.createElement("style");
-    st.textContent = "header nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;padding:0;margin-left:auto;margin-right:auto}header nav ul li{margin:0}header nav ul li a{font-size:14.5px;white-space:nowrap}@media(min-width:1100px){header nav ul{gap:6px 14px}header nav ul li a{font-size:14px}}";
+    st.textContent = "header nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;padding:0;margin-left:auto;margin-right:auto}header nav ul li{margin:0}header nav ul li a{font-size:14.5px;white-space:nowrap}@media(min-width:1100px){header nav{max-width:1400px!important;flex-wrap:wrap}header nav ul{flex-wrap:nowrap;gap:6px 13px;width:100%;order:3;justify-content:center}header nav ul li a{font-size:13.5px}}@media(min-width:1100px) and (max-width:1300px){header nav ul{gap:6px 10px}header nav ul li a{font-size:12.5px}}";
     document.head.appendChild(st);
   } catch (e) {}
 })();
