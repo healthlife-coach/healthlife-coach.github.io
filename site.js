@@ -10,7 +10,7 @@
   /* ===== EDIT HERE: all website text. "en" = English, "ar" = Arabic ===== */
   var T = {
     en: {
-    pk_pay:"Subscribe & pay now", terms_p:"Your diet and workout program is prepared specially for you and delivered within 24 hours of payment confirmation. Once the program has been delivered, the amount is non-refundable. If it is not delivered within that time, you may request a refund.", terms_chk:"I have read and agree to the terms above", terms_need:"Please tick the box to agree to the terms.", thx_h:"Thank you! 🎉", thx_p:"Your payment is being confirmed. Send us your order number on WhatsApp and we will verify it and start your program.", thx_o:"Order number", thx_btn:"Send order number on WhatsApp", msg_order:"Hello Coach Abdelrahman, I paid online. My order number is: {order}. Please confirm my payment and start my program.", powered:"Online payments powered by", pk_ask:"Ask on WhatsApp", pm_online:"Online payment", pay_online_h:"Pay online by card or wallet", pay_online_p:"Fill in your details, then you will be taken to a secure Kashier page to finish the payment. We never see your card details.", f_name:"Full name", f_phone:"WhatsApp number", f_email:"Email (optional)", pay_now:"Pay now", pay_wait:"Please wait…", pay_err:"Could not start the payment. Please try again or pay by bank transfer.", pay_need:"Please enter your name and WhatsApp number.", pay_done:"Thank you! Your payment is being confirmed. Please message us on WhatsApp to start.", or_bank:"Or pay by bank transfer",
+    pk_pay:"Subscribe & pay now", terms_p:"Your diet and workout program is designed individually for you and delivered within 24 hours of payment confirmation. Once your plan has been designed and delivered to you, the amount is non-refundable. If it is not delivered within that time, you may request a refund. Our delivery records (date, time and WhatsApp message status) are valid proof of delivery.", terms_chk:"I have read and agree to the terms above", terms_need:"Please tick the box to agree to the terms.", thx_h:"Thank you! 🎉", thx_p:"Your payment is being confirmed. Send us your order number on WhatsApp and we will verify it and start your program.", thx_o:"Order number", thx_btn:"Send order number on WhatsApp", msg_order:"Hello Coach Abdelrahman, I paid online. My order number is: {order}. Please confirm my payment and start my program.", powered:"Online payments powered by", pk_ask:"Ask on WhatsApp", pm_online:"Online payment", pay_online_h:"Pay online by card or wallet", pay_online_p:"Fill in your details, then you will be taken to a secure Kashier page to finish the payment. We never see your card details.", f_name:"Full name", f_phone:"WhatsApp number", f_email:"Email (optional)", pay_now:"Pay now", pay_wait:"Please wait…", pay_err:"Could not start the payment. Please try again or pay by bank transfer.", pay_need:"Please enter your name and WhatsApp number.", pay_done:"Thank you! Your payment is being confirmed. Please message us on WhatsApp to start.", or_bank:"Or pay by bank transfer",
       /* titles */
       title_home:"HealthLife | Diet & Workout Coaching",
       title_results:"Transformations | HealthLife",
@@ -117,7 +117,7 @@
       btn:"العربية"
     },
     ar: {
-    pk_pay:"اشترك وادفع الآن", terms_p:"يتم إعداد برنامجك الغذائي والتدريبي خصيصاً لك وتسليمه خلال 24 ساعة من تأكيد الدفع. بعد تسليم البرنامج لا يمكن استرداد المبلغ. وإذا لم يتم التسليم خلال المدة المذكورة يمكنك طلب الاسترداد.", terms_chk:"قرأت الشروط أعلاه وأوافق عليها", terms_need:"من فضلك علّم على خانة الموافقة على الشروط.", thx_h:"شكراً لك! 🎉", thx_p:"جاري تأكيد دفعتك. ابعتلنا رقم الطلب على واتساب وهنراجعه ونبدأ برنامجك.", thx_o:"رقم الطلب", thx_btn:"ابعت رقم الطلب على واتساب", msg_order:"أهلاً كابتن عبدالرحمن، دفعت أونلاين. رقم طلبي: {order}. من فضلك أكد الدفع وابدأ برنامجي.", powered:"الدفع الإلكتروني بواسطة", pk_ask:"اسأل على واتساب", pm_online:"الدفع الإلكتروني", pay_online_h:"ادفع أونلاين بالكارت أو المحفظة", pay_online_p:"اكتب بياناتك وهننقلك لصفحة كاشير الآمنة لإتمام الدفع. إحنا مش بنشوف بيانات الكارت أبداً.", f_name:"الاسم بالكامل", f_phone:"رقم الواتساب", f_email:"الإيميل (اختياري)", pay_now:"ادفع الآن", pay_wait:"استنى لحظة…", pay_err:"مقدرناش نبدأ الدفع. جرّب تاني أو ادفع بتحويل بنكي.", pay_need:"من فضلك اكتب اسمك ورقم الواتساب.", pay_done:"شكراً! جاري تأكيد الدفع. ابعتلنا على واتساب لنبدأ.", or_bank:"أو ادفع بتحويل بنكي",
+    pk_pay:"اشترك وادفع الآن", terms_p:"يتم تصميم برنامجك الغذائي والتدريبي خصيصاً لك وتسليمه خلال 24 ساعة من تأكيد الدفع. بعد اكتمال تصميم خطتك وتسليمها لك لا يمكن استرداد المبلغ. وإذا لم يتم التسليم خلال المدة المذكورة يمكنك طلب الاسترداد. وسجلات التسليم لدينا (التاريخ والوقت وحالة رسالة الواتساب) تُعد إثباتاً صحيحاً للتسليم.", terms_chk:"قرأت الشروط أعلاه وأوافق عليها", terms_need:"من فضلك علّم على خانة الموافقة على الشروط.", thx_h:"شكراً لك! 🎉", thx_p:"جاري تأكيد دفعتك. ابعتلنا رقم الطلب على واتساب وهنراجعه ونبدأ برنامجك.", thx_o:"رقم الطلب", thx_btn:"ابعت رقم الطلب على واتساب", msg_order:"أهلاً كابتن عبدالرحمن، دفعت أونلاين. رقم طلبي: {order}. من فضلك أكد الدفع وابدأ برنامجي.", powered:"الدفع الإلكتروني بواسطة", pk_ask:"اسأل على واتساب", pm_online:"الدفع الإلكتروني", pay_online_h:"ادفع أونلاين بالكارت أو المحفظة", pay_online_p:"اكتب بياناتك وهننقلك لصفحة كاشير الآمنة لإتمام الدفع. إحنا مش بنشوف بيانات الكارت أبداً.", f_name:"الاسم بالكامل", f_phone:"رقم الواتساب", f_email:"الإيميل (اختياري)", pay_now:"ادفع الآن", pay_wait:"استنى لحظة…", pay_err:"مقدرناش نبدأ الدفع. جرّب تاني أو ادفع بتحويل بنكي.", pay_need:"من فضلك اكتب اسمك ورقم الواتساب.", pay_done:"شكراً! جاري تأكيد الدفع. ابعتلنا على واتساب لنبدأ.", or_bank:"أو ادفع بتحويل بنكي",
       title_home:"هيلث لايف | نظام غذائي وخطة تمارين",
       title_results:"التحولات | هيلث لايف",
       title_pay:"الدفع بالتحويل البنكي | هيلث لايف",
@@ -601,4 +601,29 @@
     s.setAttribute("data-cf-beacon", '{"token": "4d129efb4b9d43c49010ecf619502ce5"}');
     document.head.appendChild(s);
   } catch (e) {}
+})();
+
+/* ---- Terms & Refund link: in every footer and under the payment agreement checkbox ---- */
+(function () {
+  function ar() { return document.documentElement.lang === "ar"; }
+  function lab() { return ar() ? "الشروط والاسترداد والخصوصية" : "Terms, Refunds & Privacy"; }
+  function init() {
+    try {
+      var links = [];
+      var f = document.querySelector("footer");
+      if (f && !f.querySelector('a[href="terms.html"]')) {
+        var p = document.createElement("p"); p.style.cssText = "margin:10px 0 0;text-align:center";
+        var a = document.createElement("a"); a.href = "terms.html"; a.textContent = lab(); a.setAttribute("data-terms-link", "1"); p.appendChild(a); f.appendChild(p); links.push(a);
+      }
+      var chk = document.getElementById("agree");
+      if (chk && chk.parentNode && !document.getElementById("termsFull")) {
+        var q = document.createElement("p"); q.id = "termsFull"; q.style.cssText = "margin:0 0 12px;font-size:14px";
+        var b = document.createElement("a"); b.href = "terms.html"; b.target = "_blank"; b.rel = "noopener"; b.textContent = (ar() ? "اقرأ الشروط كاملة: " : "Read the full terms: ") + lab(); b.setAttribute("data-terms-link", "2"); q.appendChild(b);
+        chk.parentNode.parentNode.insertBefore(q, chk.parentNode.nextSibling); links.push(b);
+      }
+      var lb = document.getElementById("langBtn");
+      if (lb) lb.addEventListener("click", function () { setTimeout(function () { links.forEach(function (x) { x.textContent = (x.getAttribute("data-terms-link") === "2" ? (ar() ? "اقرأ الشروط كاملة: " : "Read the full terms: ") : "") + lab(); }); }, 80); });
+    } catch (e) {}
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
